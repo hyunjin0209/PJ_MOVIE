@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pj.movie.mapper.TestMapper">
+    <select id="login" resultType="com.pj.movie.dto.PmMemberDto" parameterType="String">
+        select *
+            from PM_MEMBER
+        where PM_USER_ID = #{pmUserId}
+            and PM_USER_PWD = #{pmUserPwd};
+    </select>
+</mapper>
