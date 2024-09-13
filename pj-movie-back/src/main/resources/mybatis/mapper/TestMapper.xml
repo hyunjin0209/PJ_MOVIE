@@ -9,4 +9,10 @@
         where PM_USER_ID = #{pmUserId}
             and PM_USER_PWD = #{pmUserPwd};
     </select>
+    <select id="select" resultType="com.pj.movie.dto.PmBoardDto" parameterType="String">
+        select *
+            from PM_BOARD
+        where PB_CATEGORY_CD = #{pbCategoryCd}
+            and PB_USER_ID = #{pbUserId};
+    </select>
 </mapper>
