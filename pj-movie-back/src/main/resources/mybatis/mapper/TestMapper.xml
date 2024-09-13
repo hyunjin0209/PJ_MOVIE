@@ -9,4 +9,9 @@
         where PM_USER_ID = #{pmUserId}
             and PM_USER_PWD = #{pmUserPwd};
     </select>
+
+    <select id="getCategoryData" resultType="com.pj.movie.dto.PmBoardCatgDto" parameterType="int">
+       select *
+        from PM_BOARD_CATG;
+    </select>
 </mapper>
