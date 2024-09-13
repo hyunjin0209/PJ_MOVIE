@@ -1,6 +1,7 @@
 package com.pj.movie.service;
 
 import com.pj.movie.dto.PmBoardCatgDto;
+import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.dto.PmMemberDto;
 import com.pj.movie.mapper.TestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,9 @@ public class TestServiceImpl implements TestService{
     public List<PmBoardCatgDto> getCategoryData(){
             return testMapper.getCategoryData();
     }
+    
+    public PmBoardDto select(String pbCategoryCd, String pbUserId){
+        return  testMapper.select(pbCategoryCd,pbUserId);
+    }
 }
+
