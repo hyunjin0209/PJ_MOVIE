@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignIn from "./component/sign/SignIn";
-
+import UserJoin from "./component/UserJoin";
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +15,7 @@ const AppComponent = () => {
       <Layout>
         <Routes>
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/userjoin" element={<UserJoin />} />
         </Routes>
       </Layout>
     </div>

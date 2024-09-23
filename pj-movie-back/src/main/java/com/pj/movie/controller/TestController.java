@@ -5,11 +5,10 @@ import com.pj.movie.dto.PmBoardCatgDto;
 import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.dto.PmMemberDto;
 import com.pj.movie.service.TestService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +16,7 @@ import java.util.List;
 @RequestMapping("/test")
 
 public class TestController {
+    private static final Logger log = LoggerFactory.getLogger(TestController.class);
     @Autowired
     TestService testService;
 
@@ -35,5 +35,9 @@ public class TestController {
     public PmBoardDto select(@PathVariable("pbCategoryCd") String pbCategoryCd,
                             @PathVariable("pbUserId") String pbUserId) {
             return testService.select(pbCategoryCd, pbUserId);
+    }
+    @PostMapping("/userJoin")
+    public int userJoin(@RequestBody PmMemberDto pmMemberDto){
+     return testService.userJoin(pmMemberDto);
     }
 }

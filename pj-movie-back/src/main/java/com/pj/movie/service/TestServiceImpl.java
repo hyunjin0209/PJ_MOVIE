@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TestServiceImpl implements TestService{
+public class TestServiceImpl implements TestService {
     @Autowired
     TestMapper testMapper;
 
@@ -27,5 +27,11 @@ public class TestServiceImpl implements TestService{
     public PmBoardDto select(String pbCategoryCd, String pbUserId){
         return  testMapper.select(pbCategoryCd,pbUserId);
     }
+
+    @Override
+    public int userJoin(PmMemberDto pmMemberDto) {
+        return testMapper.userJoin(pmMemberDto);
+    }
 }
+
 
