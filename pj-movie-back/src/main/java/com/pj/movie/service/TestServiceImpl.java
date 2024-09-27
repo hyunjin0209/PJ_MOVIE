@@ -32,6 +32,9 @@ public class TestServiceImpl implements TestService {
     public int userJoin(PmMemberDto pmMemberDto) {
         return testMapper.userJoin(pmMemberDto);
     }
+
+    @Override
+    public  int userLogIn(PmMemberDto pmMemberDto) { return testMapper.userLogIn(pmMemberDto); }
 }
 
 
