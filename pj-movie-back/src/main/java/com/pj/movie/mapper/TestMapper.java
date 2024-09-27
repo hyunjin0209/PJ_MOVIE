@@ -14,4 +14,5 @@ public interface TestMapper {
     List<PmBoardCatgDto> getCategoryData();
     PmBoardDto select(@Param("pbCategoryCd") String pbCategoryCd, @Param("pbUserId")String pbUserId);
     int userJoin(PmMemberDto pmMemberDto);
+    int userLogIn(PmMemberDto pmMemberDto);
 }

@@ -40,4 +40,17 @@ public class TestController {
     public int userJoin(@RequestBody PmMemberDto pmMemberDto){
      return testService.userJoin(pmMemberDto);
     }
+
+    @PostMapping("/userLogin")
+    public int userLogIn(@RequestBody PmMemberDto pmMemberDto) {
+        return testService.userLogIn(pmMemberDto);
+    }
 }
+
+
+
+
+
+
+
+
