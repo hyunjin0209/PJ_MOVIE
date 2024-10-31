@@ -35,6 +35,11 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public  int userLogIn(PmMemberDto pmMemberDto) { return testMapper.userLogIn(pmMemberDto); }
+
+    @Override
+    public  int resetPwd(PmMemberDto pmMemberDto){ return testMapper.resetPwd(pmMemberDto);}
+    @Override
+    public  int resetPwd2(PmMemberDto pmMemberDto){ return  testMapper.resetPwd2(pmMemberDto);}
 }
 
 

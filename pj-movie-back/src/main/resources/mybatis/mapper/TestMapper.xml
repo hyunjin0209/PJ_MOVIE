@@ -34,4 +34,20 @@
         and PM_USER_PWD=#{pmUserPwd}
 
     </select>
+
+    <select id="resetPwd" resultType="int" parameterType="com.pj.movie.dto.PmMemberDto">
+        select count (*)
+        from PM_MEMBER
+        where PM_USER_NAME=#{pmUserName}
+        and PM_USER_BD=#{pmUserBd}
+        and PM_USER_ID=#{pmUserId}
+        and PM_USER_EMAIL=#{pmUserEmail}
+        and PM_USER_PHONE=#{pmUserPhone}
+    </select>
+
+    <update id="resetPwd2" parameterType="com.pj.movie.dto.PmMemberDto">
+        update PM_MEMBER
+        set PM_USER_PWD=#{pmUserPwd}
+        where PM_USER_ID=#{pmUserId}
+    </update>
 </mapper>

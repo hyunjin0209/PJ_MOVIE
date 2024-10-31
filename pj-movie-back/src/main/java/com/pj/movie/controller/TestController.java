@@ -45,6 +45,16 @@ public class TestController {
     public int userLogIn(@RequestBody PmMemberDto pmMemberDto) {
         return testService.userLogIn(pmMemberDto);
     }
+
+    @PostMapping("/resetPwd")
+    public int resetPwd(@RequestBody PmMemberDto pmMemberDto){
+        return testService.resetPwd(pmMemberDto);
+    }
+
+    @PostMapping("/resetPwd2")
+    public  int resetPwd2(@RequestBody PmMemberDto pmMemberDto){
+        return testService.resetPwd2(pmMemberDto);
+    }
 }
 
 
