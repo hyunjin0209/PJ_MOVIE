@@ -17,4 +17,6 @@ public interface TestMapper {
     int userLogIn(PmMemberDto pmMemberDto);
     int resetPwd(PmMemberDto pmMemberDto);
     int resetPwd2(PmMemberDto pmMemberDto);
+    String findId(PmMemberDto pmMemberDto);
+
 }

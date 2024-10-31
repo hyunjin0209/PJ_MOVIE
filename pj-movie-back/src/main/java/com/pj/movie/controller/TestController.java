@@ -55,6 +55,11 @@ public class TestController {
     public  int resetPwd2(@RequestBody PmMemberDto pmMemberDto){
         return testService.resetPwd2(pmMemberDto);
     }
+    @PostMapping("/findId")
+    public String findId(@RequestBody PmMemberDto pmMemberDto){
+        return testService.findId(pmMemberDto);
+    }
+
 }
 
 

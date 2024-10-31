@@ -32,7 +32,6 @@
         from PM_MEMBER
         where PM_USER_ID=#{pmUserId}
         and PM_USER_PWD=#{pmUserPwd}
-
     </select>
 
     <select id="resetPwd" resultType="int" parameterType="com.pj.movie.dto.PmMemberDto">
@@ -50,4 +49,15 @@
         set PM_USER_PWD=#{pmUserPwd}
         where PM_USER_ID=#{pmUserId}
     </update>
+    <select id="findId" parameterType="com.pj.movie.dto.PmMemberDto" resultType="String">
+        SELECT PM_USER_ID
+        FROM PM_MEMBER
+        WHERE PM_USER_NAME =#{pmUserName}
+        AND PM_USER_EMAIL =#{pmUserEmail}
+        AND PM_USER_PHONE =#{pmUserPhone}
+        AND PM_USER_BD =#{pmUserBd};
+    </select>
+
+
+
 </mapper>
