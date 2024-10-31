@@ -45,6 +45,11 @@ public class TestController {
     public int userLogIn(@RequestBody PmMemberDto pmMemberDto) {
         return testService.userLogIn(pmMemberDto);
     }
+    @PostMapping("/findId")
+    public String findId(@RequestBody PmMemberDto pmMemberDto){
+        return testService.findId(pmMemberDto);
+    }
+
 }
 
 

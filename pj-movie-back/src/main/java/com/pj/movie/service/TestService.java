@@ -14,6 +14,7 @@ public interface TestService {
     PmBoardDto select(String pbCategoryCd, String pbUserId);
     int userJoin(PmMemberDto pmMemberDto);
     int userLogIn(PmMemberDto pmMemberDto);
+    String findId(PmMemberDto pmMemberDto);
 
 }
 

@@ -35,6 +35,13 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public  int userLogIn(PmMemberDto pmMemberDto) { return testMapper.userLogIn(pmMemberDto); }
+
+    @Override
+    public  String findId(PmMemberDto pmMemberDto) {
+        return testMapper.findId(pmMemberDto);
+    }
+
+
 }
 
 
