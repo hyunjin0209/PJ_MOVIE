@@ -27,8 +27,12 @@
         values (#{pmUserId},#{pmUserPwd},#{pmUserName},#{pmUserEmail},#{pmUserPhone},#{pmUserBd});
     </insert>
 
-    <select id="userLogIn" resultType="int" parameterType="com.pj.movie.dto.PmMemberDto">
-        select count (*)
+    <select id="userLogIn"   parameterType="com.pj.movie.dto.PmMemberDto">
+        select PM_USER_ID,
+        PM_USER_NAME,
+        PM_USER_PHONE,
+        PM_USER_BD,
+        PM_USER_EMAIL
         from PM_MEMBER
         where PM_USER_ID=#{pmUserId}
         and PM_USER_PWD=#{pmUserPwd}

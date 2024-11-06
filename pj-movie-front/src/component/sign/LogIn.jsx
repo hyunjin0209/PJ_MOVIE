@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn() {
   const [formData, setFormData] = useState();
-
+  const nav = useNavigate();
   const logIn = () => {
     loginData();
   };
@@ -12,7 +13,11 @@ export default function LogIn() {
       url: "/test/userLogin",
       method: "POST",
       data: {
+        pmUserName: formData.pmUserName,
+        pmUserBd: formData.pmUserBd,
         pmUserId: formData.pmUserId,
+        pmUserEmail: formData.pmUserEmail,
+        pmUserPhone: formData.pmUserPhone,
         pmUserPwd: formData.pmUserPwd,
       },
       headers: {
@@ -20,12 +25,19 @@ export default function LogIn() {
       },
     };
 
-    console.log(option);
-
     const response = await axios(option);
-    console.log(response.data);
+    // console.log(response.data);
     if (response.status === 200) {
-      console.log(response.data);
+      if (response.data) {
+        sessionStorage.setItem("name", response.data.pmUserName);
+        sessionStorage.setItem("birth date", response.data.pmUserBd);
+        sessionStorage.setItem("id", response.data.pmUserId);
+        sessionStorage.setItem("email", response.data.pmUserEmail);
+        sessionStorage.setItem("phone number", response.data.pmUserPhone);
+        nav("/MainHome");
+      } else {
+        alert("아이디 또는 비밀번호가 다릅니다");
+      }
     }
   };
 
