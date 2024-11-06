@@ -61,7 +61,14 @@
         AND PM_USER_PHONE =#{pmUserPhone}
         AND PM_USER_BD =#{pmUserBd};
     </select>
-
+    <select id="CheckBoard" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
+        select
+        T2.PBC_NAME,
+        T1.*
+        from PM_BOARD T1
+        left join PM_BOARD_CATG T2 on T2.PBC_CD = T1.PB_CATEGORY_CD
+        where T1.PB_CATEGORY_CD = #{pbCategoryCd};
+    </select>
 
 
 </mapper>

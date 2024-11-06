@@ -18,5 +18,5 @@ public interface TestMapper {
     int resetPwd(PmMemberDto pmMemberDto);
     int resetPwd2(PmMemberDto pmMemberDto);
     String findId(PmMemberDto pmMemberDto);
-
+    List<PmBoardDto> CheckBoard(@Param("pbCategoryCd")int pbCategoryCd);
 }

@@ -17,7 +17,7 @@ public interface TestService {
     int resetPwd(PmMemberDto pmMemberDto);
     int resetPwd2(PmMemberDto pmMemberDto);
     String findId(PmMemberDto pmMemberDto);
-
+    List<PmBoardDto> CheckBoard(int pbCategoryCd);
 }
 
 
