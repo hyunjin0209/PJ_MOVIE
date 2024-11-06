@@ -42,7 +42,7 @@ public class TestController {
     }
 
     @PostMapping("/userLogin")
-    public int userLogIn(@RequestBody PmMemberDto pmMemberDto) {
+    public PmMemberDto userLogIn(@RequestBody PmMemberDto pmMemberDto) {
         return testService.userLogIn(pmMemberDto);
     }
 
@@ -60,10 +60,12 @@ public class TestController {
         return testService.findId(pmMemberDto);
     }
 
+
     @GetMapping("/CheckBoard/{pbCategoryCd}")
     public List<PmBoardDto> CheckBoard(@PathVariable("pbCategoryCd") int pbCategoryCd){
      return testService.CheckBoard(pbCategoryCd);
     }
+
 }
 
 
