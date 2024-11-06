@@ -60,6 +60,10 @@ public class TestController {
         return testService.findId(pmMemberDto);
     }
 
+    @GetMapping("/CheckBoard/{pbCategoryCd}")
+    public List<PmBoardDto> CheckBoard(@PathVariable("pbCategoryCd") int pbCategoryCd){
+     return testService.CheckBoard(pbCategoryCd);
+    }
 }
 
 

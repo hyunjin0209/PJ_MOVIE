@@ -44,7 +44,10 @@ public class TestServiceImpl implements TestService {
         return testMapper.findId(pmMemberDto);
     }
 
-
+    @Override
+    public List<PmBoardDto> CheckBoard(int pbCategoryCd){
+            return  testMapper.CheckBoard(pbCategoryCd);
+    }
 }
 
 
