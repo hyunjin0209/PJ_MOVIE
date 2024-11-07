@@ -7,7 +7,11 @@ import FindId from "./component/FindId";
 import FindId2 from "./component/FindId2";
 import MainHome from "./component/MainHome";
 import CheckBoard from "./component/CheckBoard";
+
 import DetailBoard from "./component/DetailBoard";
+
+import BoartWriting from "./component/Board/BoardWriting";
+
 function App() {
   return (
     <BrowserRouter>
@@ -29,7 +33,11 @@ const AppComponent = () => {
           <Route path="/findid2" element={<FindId2 />} />
           <Route path="/MainHome" element={<MainHome />} />
           <Route path="/CheckBoard" element={<CheckBoard />} />
+
           <Route path="/DetailBoard" element={<DetailBoard />} />
+
+          <Route path="/boardwriting" element={<BoartWriting />} />
+
         </Routes>
       </Layout>
     </div>

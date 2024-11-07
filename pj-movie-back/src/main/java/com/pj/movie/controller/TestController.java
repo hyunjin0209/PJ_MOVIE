@@ -66,6 +66,10 @@ public class TestController {
      return testService.CheckBoard(pbCategoryCd);
     }
 
+    @PostMapping("/boardInsert/{pbCategoryCd}")
+    public int boardInsert(@RequestBody PmBoardDto pmBoardDto){
+        return testService.boardInsert(pmBoardDto);
+    }
 }
 
 
