@@ -48,6 +48,9 @@ public class TestServiceImpl implements TestService {
     public List<PmBoardDto> CheckBoard(int pbCategoryCd){
             return  testMapper.CheckBoard(pbCategoryCd);
     }
+
+    @Override
+    public int boardInsert(PmBoardDto pmBoardDto){return testMapper.boardInsert(pmBoardDto);}
 }
 
 
