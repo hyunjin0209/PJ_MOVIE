@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function CheckBoard() {
   const [category, setcategory] = useState({ pbCategoryCd: 0 });
   const [boardList, setboardList] = useState([]);
+  const nav = useNavigate();
   const handleBoardClick = () => {
     if (category.pbCategoryCd !== 0) {
       SelectBoardData();
@@ -28,6 +30,7 @@ export default function CheckBoard() {
       alert("에러가 발생하였습니다");
     }
   };
+
   return (
     <>
       <table>
@@ -35,19 +38,19 @@ export default function CheckBoard() {
           <tr style={{ fontWeight: "bold" }}>
             <td>No.</td>
             <td>제목</td>
-            <td>내용</td>
             <td>작성자ID</td>
-            <td>날짜</td>
           </tr>
         </thead>
         <tbody>
           {boardList.map((data, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              style={{ color: "black", cursor: "pointer" }}
+              onClick={() => nav("/DetailBoard", { state: { data } })}
+            >
               <td>{data.pbId}</td>
               <td>{data.pbTitle}</td>
-              <td>{data.pbContent}</td>
               <td>{data.pbUserId}</td>
-              <td>{data.pbRegDt}</td>
             </tr>
           ))}
         </tbody>
