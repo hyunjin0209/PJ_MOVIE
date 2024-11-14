@@ -25,7 +25,7 @@ public class TestController {
             ,@PathVariable("pmUserPwd") String pmUserPwd) {
         return testService.login(pmUserId, pmUserPwd);
     }
-
+    
     @GetMapping("/getCategoryData")
     public List<PmBoardCatgDto> getCategoryData(){
         return testService.getCategoryData();
@@ -70,11 +70,20 @@ public class TestController {
     public int boardInsert(@RequestBody PmBoardDto pmBoardDto){
         return testService.boardInsert(pmBoardDto);
     }
-
-
-
-
+    @PostMapping("/updateBoard")
+    public int updatePost(@RequestBody PmBoardDto pmBoardDto){
+     return testService.updateBoard(pmBoardDto);
+    }
+    @PostMapping("/deleteDetailBoard")
+    public int deleteDetailBoard(@RequestBody PmBoardDto pmBoardDto){
+     return testService.deleteDetailBoard(pmBoardDto);
+    }
+    @GetMapping ("/detailBoard/{pbId}")
+    public PmBoardDto detailBoard(@PathVariable("pbId") int pmBoardDto){
+     return testService.detailBoard(pmBoardDto);
+    }
 }
+
 
 
 

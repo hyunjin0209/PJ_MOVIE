@@ -75,6 +75,24 @@
         PB_CATEGORY_CD,PB_TITLE,PB_CONTENT,PB_USER_ID)
         values(
         #{pbCategoryCd},#{pbTitle},#{pbContent},#{pbUserId})
-    </insert>
 
+
+    </insert>
+    <update id="updateBoard" parameterType="com.pj.movie.dto.PmBoardDto">
+        update PM_BOARD
+        set PB_TITLE=#{pbTitle},
+        PB_CONTENT=#{pbContent}
+        where PB_ID = #{pbId}
+    </update>
+    <delete id="deleteDetailBoard" parameterType="com.pj.movie.dto.PmBoardDto">
+        delete
+        from PM_BOARD
+        where PB_ID = #{pbId}
+    </delete>
+
+    <select id="detailBoard" parameterType="int" resultType="com.pj.movie.dto.PmBoardDto">
+        select PB_TITLE,PB_CONTENT,PB_ID,PB_USER_ID,PB_REG_DT
+        from PM_BOARD
+        where PB_ID = #{pbId}
+    </select>
 </mapper>

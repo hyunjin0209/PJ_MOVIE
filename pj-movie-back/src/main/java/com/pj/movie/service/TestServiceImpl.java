@@ -51,7 +51,11 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public int boardInsert(PmBoardDto pmBoardDto){return testMapper.boardInsert(pmBoardDto);}
-
-}
+    @Override
+    public int updateBoard(PmBoardDto pmBoardDto){return testMapper.updateBoard(pmBoardDto);}
+    @Override
+    public int deleteDetailBoard(PmBoardDto pmBoardDto){return testMapper.deleteDetailBoard(pmBoardDto);}
+    @Override  public PmBoardDto detailBoard(int pmBoardDto){return  testMapper.detailBoard(pmBoardDto);}
+    }
 
 
