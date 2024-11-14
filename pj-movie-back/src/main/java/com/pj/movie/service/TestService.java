@@ -19,6 +19,7 @@ public interface TestService {
     String findId(PmMemberDto pmMemberDto);
     List<PmBoardDto> CheckBoard(int pbCategoryCd);
     int boardInsert(PmBoardDto pmBoardDto);
+
 }
 
 

@@ -60,6 +60,8 @@ export default function LogIn() {
       />
       <br />
       <button onClick={logIn}>로그인</button>
+      <button onClick={() => nav("/FindId")}>아이디찾기</button>
+      <button onClick={() => nav("/ResetPassword")}>비밀번호변경</button>
     </>
   );
 }

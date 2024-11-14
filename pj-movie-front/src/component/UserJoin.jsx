@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function UserJoin() {
+  const nav = useNavigate();
   const [formData, setFormData] = useState();
 
   const Join = () => {
@@ -26,6 +28,8 @@ export default function UserJoin() {
     const response = await axios(option);
     if (response.status === 200) {
       setFormData(response.data);
+      alert("회원가입이 완료되었습니다");
+      nav("/MainHome");
     }
   };
   return (

@@ -64,7 +64,7 @@
     <select id="CheckBoard" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
         select
         T2.PBC_NAME,
-        T1.*
+        T1.PB_ID,T1.PB_TITLE,T1.PB_USER_ID,T1.PB_CATEGORY_CD
         from PM_BOARD T1
         left join PM_BOARD_CATG T2 on T2.PBC_CD = T1.PB_CATEGORY_CD
         where T1.PB_CATEGORY_CD = #{pbCategoryCd};
@@ -75,8 +75,6 @@
         PB_CATEGORY_CD,PB_TITLE,PB_CONTENT,PB_USER_ID)
         values(
         #{pbCategoryCd},#{pbTitle},#{pbContent},#{pbUserId})
-
-
     </insert>
 
 </mapper>

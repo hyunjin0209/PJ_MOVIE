@@ -25,7 +25,7 @@ public class TestController {
             ,@PathVariable("pmUserPwd") String pmUserPwd) {
         return testService.login(pmUserId, pmUserPwd);
     }
-    
+
     @GetMapping("/getCategoryData")
     public List<PmBoardCatgDto> getCategoryData(){
         return testService.getCategoryData();
@@ -70,8 +70,11 @@ public class TestController {
     public int boardInsert(@RequestBody PmBoardDto pmBoardDto){
         return testService.boardInsert(pmBoardDto);
     }
-}
 
+
+
+
+}
 
 
 

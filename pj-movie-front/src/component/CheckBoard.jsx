@@ -48,7 +48,7 @@ export default function CheckBoard() {
               style={{ color: "black", cursor: "pointer" }}
               onClick={() => nav("/DetailBoard", { state: { data } })}
             >
-              <td>{data.pbId}</td>
+              <td>{index + 1}</td>
               <td>{data.pbTitle}</td>
               <td>{data.pbUserId}</td>
             </tr>
