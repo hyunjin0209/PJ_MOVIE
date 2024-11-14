@@ -64,7 +64,7 @@
     <select id="CheckBoard" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
         select
         T2.PBC_NAME,
-        T1.PB_ID,T1.PB_TITLE,T1.PB_USER_ID,T1.PB_CATEGORY_CD
+        T1.*
         from PM_BOARD T1
         left join PM_BOARD_CATG T2 on T2.PBC_CD = T1.PB_CATEGORY_CD
         where T1.PB_CATEGORY_CD = #{pbCategoryCd};
@@ -78,21 +78,5 @@
 
 
     </insert>
-    <update id="updateBoard" parameterType="com.pj.movie.dto.PmBoardDto">
-        update PM_BOARD
-        set PB_TITLE=#{pbTitle},
-        PB_CONTENT=#{pbContent}
-        where PB_ID = #{pbId}
-    </update>
-    <delete id="deleteDetailBoard" parameterType="com.pj.movie.dto.PmBoardDto">
-        delete
-        from PM_BOARD
-        where PB_ID = #{pbId}
-    </delete>
 
-    <select id="detailBoard" parameterType="int" resultType="com.pj.movie.dto.PmBoardDto">
-        select PB_TITLE,PB_CONTENT,PB_ID,PB_USER_ID,PB_REG_DT
-        from PM_BOARD
-        where PB_ID = #{pbId}
-    </select>
 </mapper>

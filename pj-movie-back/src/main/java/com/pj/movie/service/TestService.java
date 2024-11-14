@@ -19,9 +19,6 @@ public interface TestService {
     String findId(PmMemberDto pmMemberDto);
     List<PmBoardDto> CheckBoard(int pbCategoryCd);
     int boardInsert(PmBoardDto pmBoardDto);
-    int updateBoard(PmBoardDto pmBoardDto);
-    int deleteDetailBoard(PmBoardDto pmBoardDto);
-    PmBoardDto detailBoard(int pmBoardDto);
 }
 
 

@@ -32,7 +32,7 @@ export default function BoartWriting() {
     if (response.status === 200) {
       alert("성공적으로 등록이 완료되었습니다");
 
-      nav("/CheckBoard");
+      //   nav("/CheckBoard");
     }
   };
   return (
