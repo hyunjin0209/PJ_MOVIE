@@ -7,6 +7,7 @@ export default function ResetPassword2({ formData, setFormData }) {
   const ResetPwd2 = () => {
     if (formData.pmUserPwd === formData.pmUserPwd2) {
       resetUserData2();
+      alert("비밀번호가 변경되었습니다");
     } else {
       alert("패스워드를 확인해주세요");
     }
