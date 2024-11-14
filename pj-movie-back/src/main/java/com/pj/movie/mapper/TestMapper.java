@@ -20,4 +20,7 @@ public interface TestMapper {
     String findId(PmMemberDto pmMemberDto);
     List<PmBoardDto> CheckBoard(@Param("pbCategoryCd")int pbCategoryCd);
     int boardInsert(PmBoardDto pmBoardDto);
+    int updateBoard(PmBoardDto pmBoardDto);
+    int deleteDetailBoard(PmBoardDto pmBoardDto);
+    PmBoardDto detailBoard(int pmBoardDto);
 }

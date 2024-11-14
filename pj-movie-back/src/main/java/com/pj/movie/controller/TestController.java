@@ -70,6 +70,18 @@ public class TestController {
     public int boardInsert(@RequestBody PmBoardDto pmBoardDto){
         return testService.boardInsert(pmBoardDto);
     }
+    @PostMapping("/updateBoard")
+    public int updatePost(@RequestBody PmBoardDto pmBoardDto){
+     return testService.updateBoard(pmBoardDto);
+    }
+    @PostMapping("/deleteDetailBoard")
+    public int deleteDetailBoard(@RequestBody PmBoardDto pmBoardDto){
+     return testService.deleteDetailBoard(pmBoardDto);
+    }
+    @GetMapping ("/detailBoard/{pbId}")
+    public PmBoardDto detailBoard(@PathVariable("pbId") int pmBoardDto){
+     return testService.detailBoard(pmBoardDto);
+    }
 }
 
 
