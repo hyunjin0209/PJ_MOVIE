@@ -12,7 +12,7 @@ export default function MainHome() {
         <div className="button-container">
           <button onClick={() => nav("/Login")}>로그인</button>
           <button onClick={() => nav("/UserJoin")}>회원가입</button>
-          <button onClick={() => nav("/CheckBoard")}>게시판</button>
+          <button onClick={() => nav("/BoardList")}>게시판</button>
         </div>
       </header>
 

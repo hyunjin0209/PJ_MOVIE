@@ -45,8 +45,8 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public List<PmBoardDto> CheckBoard(int pbCategoryCd){
-            return  testMapper.CheckBoard(pbCategoryCd);
+    public List<PmBoardDto> checkBoardList(int pbCategoryCd){
+            return  testMapper.checkBoardList(pbCategoryCd);
     }
 
     @Override
@@ -56,6 +56,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public int deleteDetailBoard(PmBoardDto pmBoardDto){return testMapper.deleteDetailBoard(pmBoardDto);}
     @Override  public PmBoardDto detailBoard(int pmBoardDto){return  testMapper.detailBoard(pmBoardDto);}
+    @Override public List<PmBoardDto> boardList(){return testMapper.boardList();}
     }
 
 

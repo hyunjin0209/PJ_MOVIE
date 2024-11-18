@@ -61,7 +61,7 @@
         AND PM_USER_PHONE =#{pmUserPhone}
         AND PM_USER_BD =#{pmUserBd};
     </select>
-    <select id="CheckBoard" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
+    <select id="checkBoardList" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
         select
         T2.PBC_NAME,
         T1.PB_ID,T1.PB_TITLE,T1.PB_USER_ID,T1.PB_CATEGORY_CD
@@ -94,5 +94,9 @@
         select PB_TITLE,PB_CONTENT,PB_ID,PB_USER_ID,PB_REG_DT
         from PM_BOARD
         where PB_ID = #{pbId}
+    </select>
+    <select id="boardList" resultType="com.pj.movie.dto.PmBoardDto">
+        select PB_ID,PB_CATEGORY_CD,PB_TITLE,PB_ID,PB_USER_ID
+        from PM_BOARD
     </select>
 </mapper>

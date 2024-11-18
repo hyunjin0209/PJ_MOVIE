@@ -6,8 +6,9 @@ import ResetPassword from "./component/sign/ResetPassword";
 import FindId from "./component/FindId";
 import FindId2 from "./component/FindId2";
 import MainHome from "./component/MainHome";
-import CheckBoard from "./component/CheckBoard";
+import BoardList from "./component/BoardList";
 import BoartWriting from "./component/Board/BoardWriting";
+import DetailBoard from "./component/DetailBoard";
 
 function App() {
   return (
@@ -29,8 +30,9 @@ const AppComponent = () => {
           <Route path="/findid" element={<FindId />} />
           <Route path="/findid2" element={<FindId2 />} />
           <Route path="/MainHome" element={<MainHome />} />
-          <Route path="/CheckBoard" element={<CheckBoard />} />
+          <Route path="/boardList" element={<BoardList />} />
           <Route path="/boardwriting" element={<BoartWriting />} />
+          <Route path="/detailboard" element={<DetailBoard />} />
         </Routes>
       </Layout>
     </div>
