@@ -1,9 +1,9 @@
-import image1 from "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/image.js/images/하울의 움직이는 성.png";
-import image2 from "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/image.js/images/인사이드아웃2.png";
-import image3 from "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/image.js/images/슈퍼배드3.png";
-import image4 from "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/image.js/images/벼랑위의 포뇨.png";
-import image5 from "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/image.js/images/이웃집 토토로.png";
-import image6 from "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/image.js/images/짱구는 못말려 극장판.png";
+import image1 from "../images/하울의 움직이는 성.png";
+import image2 from "../images/인사이드아웃2.png";
+import image3 from "../images/슈퍼배드3.png";
+import image4 from "../images/벼랑위의 포뇨.png";
+import image5 from "../images/이웃집 토토로.png";
+import image6 from "../images/짱구는 못말려 극장판.png";
 
 export const MovieData = [
   {
@@ -37,3 +37,4 @@ export const MovieData = [
     Image: image6,
   },
 ];
+export default MovieData;
