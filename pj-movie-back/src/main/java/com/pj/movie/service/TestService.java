@@ -17,11 +17,12 @@ public interface TestService {
     int resetPwd(PmMemberDto pmMemberDto);
     int resetPwd2(PmMemberDto pmMemberDto);
     String findId(PmMemberDto pmMemberDto);
-    List<PmBoardDto> CheckBoard(int pbCategoryCd);
+    List<PmBoardDto> checkBoardList(int pbCategoryCd);
     int boardInsert(PmBoardDto pmBoardDto);
     int updateBoard(PmBoardDto pmBoardDto);
     int deleteDetailBoard(PmBoardDto pmBoardDto);
     PmBoardDto detailBoard(int pmBoardDto);
+    List<PmBoardDto>boardList();
 }
 
 
