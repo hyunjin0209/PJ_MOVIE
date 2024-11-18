@@ -61,9 +61,9 @@ public class TestController {
     }
 
 
-    @GetMapping("/CheckBoard/{pbCategoryCd}")
-    public List<PmBoardDto> CheckBoard(@PathVariable("pbCategoryCd") int pbCategoryCd){
-     return testService.CheckBoard(pbCategoryCd);
+    @GetMapping("/checkBoardList/{pbCategoryCd}")
+    public List<PmBoardDto> checkBoardList(@PathVariable("pbCategoryCd") int pbCategoryCd){
+     return testService.checkBoardList(pbCategoryCd);
     }
 
     @PostMapping("/boardInsert/{pbCategoryCd}")
@@ -81,6 +81,10 @@ public class TestController {
     @GetMapping ("/detailBoard/{pbId}")
     public PmBoardDto detailBoard(@PathVariable("pbId") int pmBoardDto){
      return testService.detailBoard(pmBoardDto);
+    }
+    @GetMapping("/boardList")
+    public List<PmBoardDto> boardList(){
+        return testService.boardList();
     }
 }
 
