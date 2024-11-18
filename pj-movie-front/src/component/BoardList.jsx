@@ -103,7 +103,7 @@ export default function BoardList() {
           });
         }}
       >
-        <option value={0}>선택하시오</option>
+        <option>선택하시오</option>
         <option value={1}>환불</option>
         <option value={2}>예매취소</option>
         <option value={3}>예매</option>
