@@ -8,7 +8,7 @@ import FindId2 from "./component/FindId2";
 import BoardList from "./component/BoardList";
 import BoartWriting from "./component/Board/BoardWriting";
 import DetailBoard from "./component/DetailBoard";
-
+import NowScreening from "./component/NowScreening";
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +31,7 @@ const AppComponent = () => {
           <Route path="/boardList" element={<BoardList />} />
           <Route path="/boardwriting" element={<BoartWriting />} />
           <Route path="/detailboard" element={<DetailBoard />} />
+          <Route path="/nowscreening" element={<NowScreening />} />
         </Routes>
       </Layout>
     </div>

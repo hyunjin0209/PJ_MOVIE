@@ -92,7 +92,7 @@ export default function DetailBoard() {
 
     if (response.status === 200) {
       alert("삭제가 완료되었습니다");
-      nav("/CheckBoard");
+      nav("/BoardList");
     } else {
       alert("삭제 실패");
     }

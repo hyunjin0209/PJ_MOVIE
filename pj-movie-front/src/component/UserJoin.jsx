@@ -29,7 +29,7 @@ export default function UserJoin() {
     if (response.status === 200) {
       setFormData(response.data);
       alert("회원가입이 완료되었습니다");
-      nav("/MainHome");
+      nav("/NowScreening");
     }
   };
   return (
