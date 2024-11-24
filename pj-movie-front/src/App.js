@@ -31,7 +31,7 @@ const AppComponent = () => {
           <Route path="/boardList" element={<BoardList />} />
           <Route path="/boardwriting" element={<BoartWriting />} />
           <Route path="/detailboard" element={<DetailBoard />} />
-          <Route path="nowscreening" element={<NowScreening />}></Route>
+          <Route path="/nowscreening" element={<NowScreening />} />
         </Routes>
       </Layout>
     </div>

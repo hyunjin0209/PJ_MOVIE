@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function FindId2({ id }) {
   const nav = useNavigate();
   const ClickHome = () => {
-    nav("/MainHome");
+    nav("/NowScreening");
   };
   const ClickLogin = () => {
     nav("/Login");
