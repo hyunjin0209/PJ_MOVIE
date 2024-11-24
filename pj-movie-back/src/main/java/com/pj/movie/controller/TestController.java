@@ -3,10 +3,7 @@ package com.pj.movie.controller;
 
 import com.pj.movie.dto.PmBoardCatgDto;
 import com.pj.movie.dto.PmBoardDto;
-import com.pj.movie.dto.PmMemberDto;
 import com.pj.movie.service.TestService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/test")
-
 public class TestController {
-    private static final Logger log = LoggerFactory.getLogger(TestController.class);
     @Autowired
-    TestService testService;
+    public TestService testService;
 
- @GetMapping("/login/{pmUserId}/{pmUserPwd}")
-    public PmMemberDto login(@PathVariable("pmUserId") String pmUserId
-            ,@PathVariable("pmUserPwd") String pmUserPwd) {
-        return testService.login(pmUserId, pmUserPwd);
-    }
-    
     @GetMapping("/getCategoryData")
     public List<PmBoardCatgDto> getCategoryData(){
         return testService.getCategoryData();
@@ -33,61 +22,34 @@ public class TestController {
 
     @GetMapping("/select/{pbCategoryCd}/{pbUserId}")
     public PmBoardDto select(@PathVariable("pbCategoryCd") String pbCategoryCd,
-                            @PathVariable("pbUserId") String pbUserId) {
-            return testService.select(pbCategoryCd, pbUserId);
+                             @PathVariable("pbUserId") String pbUserId) {
+        return testService.select(pbCategoryCd, pbUserId);
     }
-    @PostMapping("/userJoin")
-    public int userJoin(@RequestBody PmMemberDto pmMemberDto){
-     return testService.userJoin(pmMemberDto);
-    }
-
-    @PostMapping("/userLogin")
-    public PmMemberDto userLogIn(@RequestBody PmMemberDto pmMemberDto) {
-        return testService.userLogIn(pmMemberDto);
-    }
-
-    @PostMapping("/resetPwd")
-    public int resetPwd(@RequestBody PmMemberDto pmMemberDto){
-        return testService.resetPwd(pmMemberDto);
-    }
-
-    @PostMapping("/resetPwd2")
-    public  int resetPwd2(@RequestBody PmMemberDto pmMemberDto){
-        return testService.resetPwd2(pmMemberDto);
-    }
-    @PostMapping("/findId")
-    public String findId(@RequestBody PmMemberDto pmMemberDto){
-        return testService.findId(pmMemberDto);
-    }
-
 
     @GetMapping("/checkBoardList/{pbCategoryCd}")
     public List<PmBoardDto> checkBoardList(@PathVariable("pbCategoryCd") int pbCategoryCd){
-     return testService.checkBoardList(pbCategoryCd);
+        return testService.checkBoardList(pbCategoryCd);
     }
 
     @PostMapping("/boardInsert/{pbCategoryCd}")
     public int boardInsert(@RequestBody PmBoardDto pmBoardDto){
         return testService.boardInsert(pmBoardDto);
     }
+
     @PostMapping("/updateBoard")
     public int updatePost(@RequestBody PmBoardDto pmBoardDto){
-     return testService.updateBoard(pmBoardDto);
+        return testService.updateBoard(pmBoardDto);
     }
+
     @PostMapping("/deleteDetailBoard")
     public int deleteDetailBoard(@RequestBody PmBoardDto pmBoardDto){
-     return testService.deleteDetailBoard(pmBoardDto);
+        return testService.deleteDetailBoard(pmBoardDto);
     }
     @GetMapping ("/detailBoard/{pbId}")
     public PmBoardDto detailBoard(@PathVariable("pbId") int pmBoardDto){
-     return testService.detailBoard(pmBoardDto);
-    }
-    @GetMapping("/boardList")
-    public List<PmBoardDto> boardList(){
-        return testService.boardList();
+        return testService.detailBoard(pmBoardDto);
     }
 }
-
 
 
 

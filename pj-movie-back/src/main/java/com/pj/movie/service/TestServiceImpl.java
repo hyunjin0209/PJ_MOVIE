@@ -38,8 +38,10 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public  int resetPwd(PmMemberDto pmMemberDto){ return testMapper.resetPwd(pmMemberDto);}
+
     @Override
     public  int resetPwd2(PmMemberDto pmMemberDto){ return  testMapper.resetPwd2(pmMemberDto);}
+
     public  String findId(PmMemberDto pmMemberDto) {
         return testMapper.findId(pmMemberDto);
     }
@@ -51,12 +53,14 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public int boardInsert(PmBoardDto pmBoardDto){return testMapper.boardInsert(pmBoardDto);}
+
     @Override
     public int updateBoard(PmBoardDto pmBoardDto){return testMapper.updateBoard(pmBoardDto);}
+
     @Override
     public int deleteDetailBoard(PmBoardDto pmBoardDto){return testMapper.deleteDetailBoard(pmBoardDto);}
+
     @Override  public PmBoardDto detailBoard(int pmBoardDto){return  testMapper.detailBoard(pmBoardDto);}
-    @Override public List<PmBoardDto> boardList(){return testMapper.boardList();}
     }
 
 

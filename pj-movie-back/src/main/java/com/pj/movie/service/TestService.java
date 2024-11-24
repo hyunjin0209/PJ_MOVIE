@@ -22,7 +22,6 @@ public interface TestService {
     int updateBoard(PmBoardDto pmBoardDto);
     int deleteDetailBoard(PmBoardDto pmBoardDto);
     PmBoardDto detailBoard(int pmBoardDto);
-    List<PmBoardDto>boardList();
 }
 
 

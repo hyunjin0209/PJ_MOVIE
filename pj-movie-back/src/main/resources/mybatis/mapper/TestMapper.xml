@@ -61,14 +61,19 @@
         AND PM_USER_PHONE =#{pmUserPhone}
         AND PM_USER_BD =#{pmUserBd};
     </select>
+
     <select id="checkBoardList" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
         select
-        T2.PBC_NAME,
-        T1.PB_ID,T1.PB_TITLE,T1.PB_USER_ID,T1.PB_CATEGORY_CD
-        from PM_BOARD T1
-        left join PM_BOARD_CATG T2 on T2.PBC_CD = T1.PB_CATEGORY_CD
-        where T1.PB_CATEGORY_CD = #{pbCategoryCd};
+            PB_ID,
+            PB_TITLE,
+            PB_USER_ID,
+            PB_CATEGORY_CD
+        from PM_BOARD
+        <if test="pbCategoryCd!=0">
+            where PB_CATEGORY_CD = #{pbCategoryCd};
+        </if>
     </select>
+
     <insert id="boardInsert" parameterType="com.pj.movie.dto.PmBoardDto">
         insert
         into PM_BOARD(
@@ -95,8 +100,5 @@
         from PM_BOARD
         where PB_ID = #{pbId}
     </select>
-    <select id="boardList" resultType="com.pj.movie.dto.PmBoardDto">
-        select PB_ID,PB_CATEGORY_CD,PB_TITLE,PB_ID,PB_USER_ID
-        from PM_BOARD
-    </select>
+
 </mapper>
