@@ -7,18 +7,16 @@ export default function NowScreening() {
   const nav = useNavigate();
 
   const [page, setPage] = useState(1);
-  const itemsPerPage = 2;
+  let itemsPerPage = 2;
   const [currentMovies, setCurrentMovies] = useState([]);
 
   const handlePageChange = (page) => {
     setPage(page);
   };
-  useEffect(() => {
-    // 페이지 변경 시 currentMovies를 업데이트
-    const startIndex = (page - 1) * itemsPerPage;
-    const movies = MovieData.slice(startIndex, startIndex + itemsPerPage);
-    setCurrentMovies(movies);
-  }, [page]);
+
+  // 페이지 변경 시 currentMovies를 업데이트
+  const startIndex = (page - 1) * itemsPerPage;
+  const movies = MovieData.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="main-home">
@@ -32,7 +30,7 @@ export default function NowScreening() {
       </header>
 
       <div className="movie-grid">
-        {currentMovies.map((data, index) => (
+        {movies.map((data, index) => (
           <div key={index} className="movie-item">
             <div className="movie-no">{data.No}</div>
             <div className="movie-title">{data.Title}</div>
