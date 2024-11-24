@@ -13,7 +13,7 @@ export default function SignIn() {
   // api test
   const selectCatgData = async () => {
     const option = {
-      url: "/test/getCategoryData",
+      url: "/api/test/getCategoryData",
       method: "GET",
     };
     const response = await axios(option);
@@ -28,7 +28,7 @@ export default function SignIn() {
 
   const selectBoard = async () => {
     const option = {
-      url: "/test/select/" + formData.pbCatgCd + "/" + formData.pbUserId,
+      url: "/api/test/select/" + formData.pbCatgCd + "/" + formData.pbUserId,
       method: "GET",
     };
     const response = await axios(option);

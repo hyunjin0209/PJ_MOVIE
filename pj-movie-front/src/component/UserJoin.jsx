@@ -11,7 +11,7 @@ export default function UserJoin() {
   };
   const signUpUserData = async () => {
     const option = {
-      url: "/test/userJoin",
+      url: "/api/auth/userJoin",
       method: "POST",
       data: {
         pmUserId: formData.pmUserId,

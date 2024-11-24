@@ -10,7 +10,7 @@ export default function LogIn() {
   };
   const loginData = async () => {
     const option = {
-      url: "/test/userLogin",
+      url: "/api/auth/userLogin",
       method: "POST",
       data: {
         pmUserName: formData.pmUserName,

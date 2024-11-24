@@ -11,7 +11,7 @@ export default function FindId() {
 
   const SelectMemberIdData = async () => {
     const option = {
-      url: "/test/findId",
+      url: "/api/auth/findId",
       method: "POST",
       data: {
         pmUserName: formData.pmUserName,

@@ -14,7 +14,7 @@ export default function ResetPassword() {
     console.log(formData);
 
     const option = {
-      url: "/test/resetPwd",
+      url: "/api/auth/resetPwd",
       method: "POST",
       data: {
         pmUserName: formData.pmUserName,

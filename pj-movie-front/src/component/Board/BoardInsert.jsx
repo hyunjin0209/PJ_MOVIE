@@ -14,7 +14,7 @@ export default function BoartWriting() {
     console.log(formData);
 
     const option = {
-      url: "/test/boardInsert/" + formData.pbCategoryCd,
+      url: "/api/test/boardInsert/" + formData.pbCategoryCd,
       method: "POST",
       data: {
         pbTitle: formData.pbTitle,
