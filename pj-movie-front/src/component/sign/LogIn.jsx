@@ -34,7 +34,7 @@ export default function LogIn() {
         sessionStorage.setItem("id", response.data.pmUserId);
         sessionStorage.setItem("email", response.data.pmUserEmail);
         sessionStorage.setItem("phone number", response.data.pmUserPhone);
-        nav("/MainHome");
+        nav("/NowScreening");
       } else {
         alert("아이디 또는 비밀번호가 다릅니다");
       }
