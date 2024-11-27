@@ -16,51 +16,14 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public PmMemberDto login(String pmUserId, String pmUserPwd) {
-        return testMapper.login(pmUserId, pmUserPwd);
-    }
+        return testMapper.login(pmUserId, pmUserPwd);}
 
     @Override
     public List<PmBoardCatgDto> getCategoryData(){
-            return testMapper.getCategoryData();
-    }
+            return testMapper.getCategoryData();}
     
     public PmBoardDto select(String pbCategoryCd, String pbUserId){
-        return  testMapper.select(pbCategoryCd,pbUserId);
-    }
-
-    @Override
-    public int userJoin(PmMemberDto pmMemberDto) {
-        return testMapper.userJoin(pmMemberDto);
-    }
-
-    @Override
-    public  PmMemberDto userLogIn(PmMemberDto pmMemberDto) { return testMapper.userLogIn(pmMemberDto); }
-
-    @Override
-    public  int resetPwd(PmMemberDto pmMemberDto){ return testMapper.resetPwd(pmMemberDto);}
-
-    @Override
-    public  int resetPwd2(PmMemberDto pmMemberDto){ return  testMapper.resetPwd2(pmMemberDto);}
-
-    public  String findId(PmMemberDto pmMemberDto) {
-        return testMapper.findId(pmMemberDto);
-    }
-
-    @Override
-    public List<PmBoardDto> checkBoardList(int pbCategoryCd){
-            return  testMapper.checkBoardList(pbCategoryCd);
-    }
-
-    @Override
-    public int boardInsert(PmBoardDto pmBoardDto){return testMapper.boardInsert(pmBoardDto);}
-
-    @Override
-    public int updateBoard(PmBoardDto pmBoardDto){return testMapper.updateBoard(pmBoardDto);}
-
-    @Override
-    public int deleteDetailBoard(PmBoardDto pmBoardDto){return testMapper.deleteDetailBoard(pmBoardDto);}
-
-    @Override  public PmBoardDto detailBoard(int pmBoardDto){return  testMapper.detailBoard(pmBoardDto);}
+        return  testMapper.select(pbCategoryCd,pbUserId);}
     }
 
 

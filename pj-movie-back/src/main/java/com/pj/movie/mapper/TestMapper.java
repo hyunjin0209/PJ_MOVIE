@@ -13,14 +13,4 @@ public interface TestMapper {
     PmMemberDto login(@Param("pmUserId") String pmUserId, @Param("pmUserPwd") String pmUserPwd);
     List<PmBoardCatgDto> getCategoryData();
     PmBoardDto select(@Param("pbCategoryCd") String pbCategoryCd, @Param("pbUserId")String pbUserId);
-    int userJoin(PmMemberDto pmMemberDto);
-    PmMemberDto userLogIn(PmMemberDto pmMemberDto);
-    int resetPwd(PmMemberDto pmMemberDto);
-    int resetPwd2(PmMemberDto pmMemberDto);
-    String findId(PmMemberDto pmMemberDto);
-    List<PmBoardDto> checkBoardList(@Param("pbCategoryCd")int pbCategoryCd);
-    int boardInsert(PmBoardDto pmBoardDto);
-    int updateBoard(PmBoardDto pmBoardDto);
-    int deleteDetailBoard(PmBoardDto pmBoardDto);
-    PmBoardDto detailBoard(int pmBoardDto);
 }

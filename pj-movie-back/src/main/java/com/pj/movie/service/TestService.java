@@ -8,20 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
 public interface TestService {
     PmMemberDto login(String pmUserId, String pmUserPwd);
     List<PmBoardCatgDto> getCategoryData();
     PmBoardDto select(String pbCategoryCd, String pbUserId);
-    int userJoin(PmMemberDto pmMemberDto);
-    PmMemberDto userLogIn(PmMemberDto pmMemberDto);
-    int resetPwd(PmMemberDto pmMemberDto);
-    int resetPwd2(PmMemberDto pmMemberDto);
-    String findId(PmMemberDto pmMemberDto);
-    List<PmBoardDto> checkBoardList(int pbCategoryCd);
-    int boardInsert(PmBoardDto pmBoardDto);
-    int updateBoard(PmBoardDto pmBoardDto);
-    int deleteDetailBoard(PmBoardDto pmBoardDto);
-    PmBoardDto detailBoard(int pmBoardDto);
 }
 
 
