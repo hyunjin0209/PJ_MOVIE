@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { MovieData } from "../image.js/MovieData/MovieData";
 import "../css/MainHome.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Pagination from "react-js-pagination";
 export default function NowScreening() {
   const nav = useNavigate();
 
   const [page, setPage] = useState(1);
   let itemsPerPage = 2;
-  const [currentMovies, setCurrentMovies] = useState([]);
 
   const handlePageChange = (page) => {
     setPage(page);

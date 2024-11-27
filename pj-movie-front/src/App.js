@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignIn from "./component/sign/SignIn";
-import UserJoin from "./component/UserJoin";
+import TestSignIn from "./component/sign/TestSignIn";
+import UserJoin from "./component/sign/UserJoin";
 import LogIn from "./component/sign/LogIn";
 import ResetPassword from "./component/sign/ResetPassword";
-import FindId from "./component/FindId";
-import FindId2 from "./component/FindId2";
-import BoardList from "./component/BoardList";
+import FindId from "./component/sign/FindId";
+import FindId2 from "./component/sign/FindId2";
+import BoardList from "./component/Board/BoardList";
 import BoartWriting from "./component/Board/BoardWriting";
-import DetailBoard from "./component/DetailBoard";
-import NowScreening from "./component/NowScreening";
+import DetailBoard from "./component/Board/DetailBoard";
+import NowScreening from "./movie/NowScreening";
 function App() {
   return (
     <BrowserRouter>
@@ -22,7 +22,7 @@ const AppComponent = () => {
     <div className="App">
       <Layout>
         <Routes>
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<TestSignIn />} />
           <Route path="/userjoin" element={<UserJoin />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/resetpassword" element={<ResetPassword />} />
