@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pj.movie.mapper.TestMapper">
+<select id="checkBoardList" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
+    select
+    PB_ID,
+    PB_TITLE,
+    PB_USER_ID,
+    PB_CATEGORY_CD
+    from PM_BOARD
+    <if test="pbCategoryCd!=0">
+        where PB_CATEGORY_CD = #{pbCategoryCd};
+    </if>
+</select>
+
+<insert id="boardInsert" parameterType="com.pj.movie.dto.PmBoardDto">
+insert
+into PM_BOARD(
+PB_CATEGORY_CD,PB_TITLE,PB_CONTENT,PB_USER_ID)
+values(
+#{pbCategoryCd},#{pbTitle},#{pbContent},#{pbUserId})
+
+
+</insert>
+<update id="updateBoard" parameterType="com.pj.movie.dto.PmBoardDto">
+update PM_BOARD
+set PB_TITLE=#{pbTitle},
+PB_CONTENT=#{pbContent}
+where PB_ID = #{pbId}
+</update>
+<delete id="deleteDetailBoard" parameterType="com.pj.movie.dto.PmBoardDto">
+delete
+from PM_BOARD
+where PB_ID = #{pbId}
+</delete>
+
+<select id="detailBoard" parameterType="int" resultType="com.pj.movie.dto.PmBoardDto">
+select PB_TITLE,PB_CONTENT,PB_ID,PB_USER_ID,PB_REG_DT
+from PM_BOARD
+where PB_ID = #{pbId}
+</select>
+</mapper>
