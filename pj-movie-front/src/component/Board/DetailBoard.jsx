@@ -18,7 +18,7 @@ export default function DetailBoard() {
 
   const detailBoard = async (pbId) => {
     const option = {
-      url: "/api/test/detailBoard/" + pbId,
+      url: "/api/board/detailBoard/" + pbId,
       method: "GET",
       data: {
         pbId: pbId,
@@ -151,7 +151,11 @@ export default function DetailBoard() {
             readOnly
           />
           <br />
-          {isEditing ? <button onClick={updateBoard}>저장</button> : <button onClick={correction}>수정</button>}
+          {isEditing ? (
+            <button onClick={updateBoard}>저장</button>
+          ) : (
+            <button onClick={correction}>수정</button>
+          )}
           <button onClick={DeleteBoard}>삭제</button>
         </div>
       )}{" "}

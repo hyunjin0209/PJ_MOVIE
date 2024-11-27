@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import FindId2 from "./FindId2";
+import FindId2 from "./FindId2.jsx";
 
 export default function FindId() {
   const [formData, setFormData] = useState();

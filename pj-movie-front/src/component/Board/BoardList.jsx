@@ -25,7 +25,7 @@ export default function BoardList() {
 
   const SelectBoardData = async () => {
     const option = {
-      url: "/api/test/checkBoardList/" + category.pbCategoryCd,
+      url: "/api/board/checkBoardList/" + category.pbCategoryCd,
       method: "GET",
       headers: { "Content-type": `application/json` },
     };
@@ -42,7 +42,10 @@ export default function BoardList() {
   };
 
   const startIndex = (page - 1) * itemsPerPage;
-  const currentBoardList = boardList.slice(startIndex, startIndex + itemsPerPage);
+  const currentBoardList = boardList.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
     <>
@@ -56,7 +59,11 @@ export default function BoardList() {
         </thead>
         <tbody>
           {currentBoardList.map((data, index) => (
-            <tr key={index} style={{ color: "white", cursor: "pointer" }} onClick={() => nav("/DetailBoard", { state: { data } })}>
+            <tr
+              key={index}
+              style={{ color: "white", cursor: "pointer" }}
+              onClick={() => nav("/DetailBoard", { state: { data } })}
+            >
               <td>{(page - 1) * itemsPerPage + index + 1}</td>
               <td>{data.pbTitle}</td>
               <td>{data.pbUserId}</td>
@@ -65,7 +72,13 @@ export default function BoardList() {
         </tbody>
       </table>
 
-      <select name="selectbox" id="selectbox" onChange={(e) => setCategory({ ...category, pbCategoryCd: parseInt(e.target.value) })}>
+      <select
+        name="selectbox"
+        id="selectbox"
+        onChange={(e) =>
+          setCategory({ ...category, pbCategoryCd: parseInt(e.target.value) })
+        }
+      >
         <option>선택하시오</option>
         <option value={1}>환불</option>
         <option value={2}>예매취소</option>
