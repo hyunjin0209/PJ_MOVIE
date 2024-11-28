@@ -8,6 +8,7 @@ export default function LogIn() {
   const logIn = () => {
     loginData();
   };
+  console.log(formData);
   const loginData = async () => {
     const option = {
       url: "/api/auth/userLogin",
