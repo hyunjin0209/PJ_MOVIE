@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.pj.movie.mapper.TestMapper">
+<mapper namespace="com.pj.movie.mapper.AuthMapper">
     <insert id="userJoin" parameterType="com.pj.movie.dto.PmMemberDto">
         insert into PM_MEMBER(PM_USER_ID,PM_USER_PWD,PM_USER_NAME,PM_USER_EMAIL,PM_USER_PHONE,PM_USER_BD)
         values (#{pmUserId},#{pmUserPwd},#{pmUserName},#{pmUserEmail},#{pmUserPhone},#{pmUserBd});

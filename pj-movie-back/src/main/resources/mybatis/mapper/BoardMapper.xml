@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.pj.movie.mapper.TestMapper">
+<mapper namespace="com.pj.movie.mapper.BoardMapper">
 <select id="checkBoardList" resultType="com.pj.movie.dto.PmBoardDto" parameterType="int">
     select
     PB_ID,
