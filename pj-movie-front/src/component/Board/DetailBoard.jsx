@@ -47,7 +47,7 @@ export default function DetailBoard() {
 
   const updateBoard = async () => {
     const option = {
-      url: "/api/test/updateBoard",
+      url: "/api/board/updateBoard",
       method: "POST",
       data: {
         pbTitle: formData.pbTitle,
@@ -78,7 +78,7 @@ export default function DetailBoard() {
       alert("회원님의 게시글이 아닙니다");
     }
     const option = {
-      url: "/test/deleteDetailBoard",
+      url: "/api/board/deleteDetailBoard",
       method: "POST",
       data: {
         pbId: formData.pbId,
