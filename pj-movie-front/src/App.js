@@ -10,6 +10,8 @@ import BoartWriting from "./component/Board/BoardWriting";
 import DetailBoard from "./component/Board/DetailBoard";
 import NowScreening from "./movie/NowScreening";
 import MainPage from "./component/MainPage/MainPage";
+import MyPage from "./component/MyPage/MyPage";
+import AskList from "./component/MyPage/AskList";
 function App() {
   return (
     <BrowserRouter>
@@ -34,6 +36,8 @@ const AppComponent = () => {
           <Route path="/detailboard" element={<DetailBoard />} />
           <Route path="/nowscreening" element={<NowScreening />} />
           <Route path="/mainpage" element={<MainPage />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/asklist" element={<AskList />} />
         </Routes>
       </Layout>
     </div>

@@ -24,8 +24,13 @@ export default function MainPage() {
                 <button onClick={() => nav("/Login")}>로그인</button>
               )}
             </div>
-
-            <button onClick={() => nav("/UserJoin")}>회원가입</button>
+            <div>
+              {sessionDate ? (
+                <button onClick={() => nav("/MyPage")}>내정보</button>
+              ) : (
+                <button onClick={() => nav("UserJoin")}>회원가입</button>
+              )}
+            </div>
             <button onClick={() => nav("/BoardList")}>게시판</button>
           </div>
         </header>
