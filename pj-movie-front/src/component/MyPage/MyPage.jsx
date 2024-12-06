@@ -5,7 +5,7 @@ export default function MyPage() {
   return (
     <>
       <button onClick={() => nav("/UserDataUpdate")}>회원정보수정</button>
-      <button onClick={() => nav("/AskList")}>로그인</button>
+      <button onClick={() => nav("/AskList")}>문의내역</button>
     </>
   );
 }
