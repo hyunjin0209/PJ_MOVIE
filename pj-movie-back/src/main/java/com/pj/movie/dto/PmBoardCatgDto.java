@@ -9,6 +9,6 @@ import java.util.Date;
 @Data
 public class PmBoardCatgDto {
 
-    private int PBCCD;
-    private String PBCNAME;
+    private int pbcCd;
+    private String pbcName;
 }

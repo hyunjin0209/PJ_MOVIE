@@ -1,5 +1,6 @@
 package com.pj.movie.mapper;
 
+import com.pj.movie.dto.PmBoardAndCatgDto;
 import com.pj.movie.dto.PmBoardDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -12,4 +13,6 @@ public interface BoardMapper {
     int updateBoard(PmBoardDto pmBoardDto);
     int deleteDetailBoard(PmBoardDto pmBoardDto);
     PmBoardDto detailBoard(int pmBoardDto);
+    List<PmBoardAndCatgDto> askList(String pmBoardDto);
+
 }

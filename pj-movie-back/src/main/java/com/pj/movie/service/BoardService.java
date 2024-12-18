@@ -1,4 +1,5 @@
 package com.pj.movie.service;
+import com.pj.movie.dto.PmBoardAndCatgDto;
 import com.pj.movie.dto.PmBoardCatgDto;
 import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.dto.PmMemberDto;
@@ -13,4 +14,5 @@ public interface BoardService {
     int updateBoard(PmBoardDto pmBoardDto);
     int deleteDetailBoard(PmBoardDto pmBoardDto);
     PmBoardDto detailBoard(int pmBoardDto);
+    List<PmBoardAndCatgDto> askList(String pmBoardAndCatgDto);
 }
