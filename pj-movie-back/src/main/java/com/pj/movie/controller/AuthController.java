@@ -1,17 +1,11 @@
 package com.pj.movie.controller;
 
 
-import com.pj.movie.dto.PmBoardCatgDto;
-import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.dto.PmMemberDto;
 import com.pj.movie.service.AuthService;
-import com.pj.movie.service.TestService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 @RequestMapping("/auth")
 @RestController
 public class AuthController {
@@ -40,4 +34,13 @@ public class AuthController {
     public String findId(@RequestBody PmMemberDto pmMemberDto){
         return authService.findId(pmMemberDto);
     }
+
+    @PostMapping("/userData")
+    public  int userData(@RequestBody PmMemberDto pmMemberDto){return authService.userData(pmMemberDto);}
+
+    @GetMapping("/userData2/{pmUserId}")
+    public PmMemberDto userData2(@PathVariable("pmUserId") String pmMemberDto){return authService.userData2(pmMemberDto);}
+
+    @PostMapping("/userDataUpdate")
+    public int userDataUpdate(@RequestBody PmMemberDto pmMemberDto){return authService.userDataUpdate(pmMemberDto);}
 }

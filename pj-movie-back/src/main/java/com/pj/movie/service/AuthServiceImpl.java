@@ -1,5 +1,7 @@
 package com.pj.movie.service;
 
+import com.pj.movie.dto.PmBoardCatgDto;
+import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.dto.PmMemberDto;
 import com.pj.movie.mapper.AuthMapper;
 import com.pj.movie.mapper.TestMapper;
@@ -27,4 +29,13 @@ public class AuthServiceImpl implements AuthService {
     public  String findId(PmMemberDto pmMemberDto) {
         return authMapper.findId(pmMemberDto);
     }
+
+    @Override
+    public  int userData(PmMemberDto pmMemberDto){return  authMapper.userData(pmMemberDto);}
+
+    @Override
+    public PmMemberDto userData2(String pmMemberDto){return  authMapper.userData2(pmMemberDto);}
+
+    @Override
+    public int userDataUpdate(PmMemberDto pmMemberDto){return  authMapper.userDataUpdate(pmMemberDto);}
 }

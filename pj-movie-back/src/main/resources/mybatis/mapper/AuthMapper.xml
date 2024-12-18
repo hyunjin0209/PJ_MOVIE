@@ -43,4 +43,29 @@
         AND PM_USER_BD =#{pmUserBd};
     </select>
 
+    <select id="userData" resultType="int" parameterType="com.pj.movie.dto.PmMemberDto">
+        select count (*)
+        from PM_MEMBER
+        where PM_USER_PWD=#{pmUserPwd}
+
+    </select>
+
+    <select id="userData2" resultType="com.pj.movie.dto.PmMemberDto" parameterType="String"  >
+
+        select PM_USER_ID,PM_USER_EMAIL,PM_USER_BD,PM_USER_NAME,PM_USER_PHONE
+        from PM_MEMBER
+        where PM_USER_ID=#{pmUserId}
+
+    </select>
+
+    <update id="userDataUpdate" parameterType="com.pj.movie.dto.PmMemberDto">
+        update PM_MEMBER
+        set PM_USER_NAME=#{pmUserName},
+        PM_USER_EMAIL=#{pmUserEmail},
+        PM_USER_PHONE=#{pmUserPhone},
+        PM_USER_BD=#{pmUserBd},
+        PM_USER_ID=#{pmUserId}
+        where PM_USER_ID=#{pmUserId}
+    </update>
+
 </mapper>

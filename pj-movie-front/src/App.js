@@ -12,6 +12,7 @@ import NowScreening from "./movie/NowScreening";
 import MainPage from "./component/MainPage/MainPage";
 import MyPage from "./component/MyPage/MyPage";
 import AskList from "./component/MyPage/AskList";
+import UserDataUpdate from "./component/MyPage/UserDataUpdate";
 function App() {
   return (
     <BrowserRouter>
@@ -38,6 +39,7 @@ const AppComponent = () => {
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/asklist" element={<AskList />} />
+          <Route path="/userdataupdate" element={<UserDataUpdate />} />
         </Routes>
       </Layout>
     </div>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function MainPage() {
   const nav = useNavigate();
 
-  const [sessionDate, setsessionDate] = useState(sessionStorage);
+  const [sessionDate, setsessionDate] = useState(sessionStorage.getItem("id"));
 
   const logout = () => {
     sessionStorage.clear();

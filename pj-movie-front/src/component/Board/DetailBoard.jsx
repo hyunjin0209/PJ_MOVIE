@@ -97,6 +97,7 @@ export default function DetailBoard() {
       alert("삭제 실패");
     }
   };
+  console.log(formData);
   return (
     <>
       {formData && (

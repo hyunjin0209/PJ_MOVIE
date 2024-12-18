@@ -1,6 +1,7 @@
 package com.pj.movie.mapper;
 
 import com.pj.movie.dto.PmBoardDto;
+import com.pj.movie.dto.PmMemberDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
