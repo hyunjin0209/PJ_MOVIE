@@ -36,7 +36,7 @@ const AppComponent = () => {
           <Route path="/boardwriting" element={<BoartWriting />} />
           <Route path="/detailboard" element={<DetailBoard />} />
           <Route path="/nowscreening" element={<NowScreening />} />
-          <Route path="/mainpage" element={<MainPage />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/asklist" element={<AskList />} />
           <Route path="/userdataupdate" element={<UserDataUpdate />} />
