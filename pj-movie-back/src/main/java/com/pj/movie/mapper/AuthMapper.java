@@ -10,4 +10,7 @@ public interface AuthMapper {
     int resetPwd(PmMemberDto pmMemberDto);
     int resetPwd2(PmMemberDto pmMemberDto);
     String findId(PmMemberDto pmMemberDto);
+    int userData(PmMemberDto pmMemberDto);
+    PmMemberDto userData2(String pmMemberDto);
+    int userDataUpdate(PmMemberDto pmMemberDto);
 }
