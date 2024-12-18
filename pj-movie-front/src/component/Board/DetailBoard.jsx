@@ -69,14 +69,16 @@ export default function DetailBoard() {
       alert("수정 실패");
     }
   };
-
-  const DeleteBoard = async () => {
+  const DeleteBoard = () => {
     if (checkId === formData.pbUserId) {
+      DeleteBoard2();
     } else if (checkId === null) {
       alert("로그인후 이용하세요");
     } else if (checkId !== formData.pbUserId) {
       alert("회원님의 게시글이 아닙니다");
     }
+  };
+  const DeleteBoard2 = async () => {
     const option = {
       url: "/api/board/deleteDetailBoard",
       method: "POST",
@@ -93,11 +95,8 @@ export default function DetailBoard() {
     if (response.status === 200) {
       alert("삭제가 완료되었습니다");
       nav("/BoardList");
-    } else {
-      alert("삭제 실패");
     }
   };
-  console.log(formData);
   return (
     <>
       {formData && (

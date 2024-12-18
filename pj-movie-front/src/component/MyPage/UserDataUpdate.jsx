@@ -41,6 +41,7 @@ export default function UserDataUpdate() {
         <div>
           비밀번호확인
           <input
+            type="password"
             onChange={(e) => {
               setFormData({ ...formData, pmUserPwd: e.target.value });
             }}
