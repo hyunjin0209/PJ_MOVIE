@@ -41,4 +41,12 @@ select PB_TITLE,PB_CONTENT,PB_ID,PB_USER_ID,PB_REG_DT
 from PM_BOARD
 where PB_ID = #{pbId}
 </select>
+
+<select id="askList" resultType="com.pj.movie.dto.PmBoardAndCatgDto" >
+    select
+    T1.PB_TITLE, T1.PB_USER_ID, T1.PB_REG_DT, T2.PBC_NAME, T1.PB_ID
+    FROM PM_BOARD T1
+    LEFT JOIN PM_BOARD_CATG T2 ON T1.PB_CATEGORY_CD = T2.PBC_CD
+    where PB_USER_ID = #{pbUserId}
+</select>
 </mapper>

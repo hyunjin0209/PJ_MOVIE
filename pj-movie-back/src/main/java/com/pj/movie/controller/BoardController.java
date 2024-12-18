@@ -1,6 +1,7 @@
 package com.pj.movie.controller;
 
 
+import com.pj.movie.dto.PmBoardAndCatgDto;
 import com.pj.movie.dto.PmBoardCatgDto;
 import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.dto.PmMemberDto;
@@ -38,4 +39,8 @@ public class BoardController {
     @GetMapping ("/detailBoard/{pbId}")
     public PmBoardDto detailBoard(@PathVariable("pbId") int pmBoardDto){
         return boardService.detailBoard(pmBoardDto);}
+    @GetMapping("/askList/{pbUserId}")
+    public List<PmBoardAndCatgDto> askList(@PathVariable("pbUserId") String pmBoardAndCatgDto){
+        return boardService.askList(pmBoardAndCatgDto);}
+
 }

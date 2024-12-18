@@ -1,5 +1,6 @@
 package com.pj.movie.service;
 
+import com.pj.movie.dto.PmBoardAndCatgDto;
 import com.pj.movie.dto.PmBoardDto;
 import com.pj.movie.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,7 @@ public class BoardServiceImpl implements BoardService {
     public int deleteDetailBoard(PmBoardDto pmBoardDto){return boardMapper.deleteDetailBoard(pmBoardDto);}
 
     @Override  public PmBoardDto detailBoard(int pmBoardDto){return  boardMapper.detailBoard(pmBoardDto);}
+
+    @Override
+    public List<PmBoardAndCatgDto> askList(String pmBoardAndCatgDto){return boardMapper.askList(pmBoardAndCatgDto);}
 }
