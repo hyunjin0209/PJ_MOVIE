@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import Pagination from "react-js-pagination";
 
 export default function BoardList() {
-  const [category, setCategory] = useState({ pbCategoryCd: 0 });
+  const [category, setCategory] = useState({ pbcCd: 0 });
   const [boardList, setBoardList] = useState([]);
   const [page, setPage] = useState(1); // 현재 페이지
   const itemsPerPage = 10; // 한 페이지당 항목 수
   const nav = useNavigate();
 
   const handleBoardClick = () => {
-    if (category.pbCategoryCd !== null) {
+    if (category.pbcCd !== null) {
       setPage(1); // 페이지 초기화
       SelectBoardData();
     } else {
@@ -25,7 +25,7 @@ export default function BoardList() {
 
   const SelectBoardData = async () => {
     const option = {
-      url: "/api/board/checkBoardList/" + category.pbCategoryCd,
+      url: "/api/board/checkBoardList/" + category.pbcCd,
       method: "GET",
       headers: { "Content-type": `application/json` },
     };
@@ -66,7 +66,7 @@ export default function BoardList() {
             >
               <td>{(page - 1) * itemsPerPage + index + 1}</td>
               <td>{data.pbTitle}</td>
-              <td>{data.pbUserId}</td>
+              <td>{data.pmUserId}</td>
             </tr>
           ))}
         </tbody>
@@ -76,7 +76,7 @@ export default function BoardList() {
         name="selectbox"
         id="selectbox"
         onChange={(e) =>
-          setCategory({ ...category, pbCategoryCd: parseInt(e.target.value) })
+          setCategory({ ...category, pbcCd: parseInt(e.target.value) })
         }
       >
         <option>선택하시오</option>

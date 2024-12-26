@@ -28,7 +28,7 @@ export default function TestSignIn() {
 
   const selectBoard = async () => {
     const option = {
-      url: "/api/test/select/" + formData.pbCatgCd + "/" + formData.pbUserId,
+      url: "/api/test/select/" + formData.pbcCd + "/" + formData.pmUserId,
       method: "GET",
     };
     const response = await axios(option);
@@ -61,7 +61,7 @@ export default function TestSignIn() {
       <input
         type="text"
         onChange={(e) => {
-          setFormData({ ...formData, pbCatgCd: e.target.value });
+          setFormData({ ...formData, pbcCd: e.target.value });
         }}
       />
       <br />
@@ -69,7 +69,7 @@ export default function TestSignIn() {
       <input
         type="text"
         onChange={(e) => {
-          setFormData({ ...formData, pbUserId: e.target.value });
+          setFormData({ ...formData, pmUserId: e.target.value });
         }}
       />
       <br />

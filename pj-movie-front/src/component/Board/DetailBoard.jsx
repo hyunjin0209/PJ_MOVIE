@@ -36,11 +36,11 @@ export default function DetailBoard() {
   };
 
   const correction = () => {
-    if (checkId === formData.pbUserId) {
+    if (checkId === formData.pmUserId) {
       setIsEditing(true);
     } else if (checkId === null) {
       alert("로그인후 이용하세요");
-    } else if (checkId !== formData.pbUserId) {
+    } else if (checkId !== formData.pmUserId) {
       alert("회원님의 게시글이 아닙니다");
     }
   };
@@ -70,11 +70,11 @@ export default function DetailBoard() {
     }
   };
   const DeleteBoard = () => {
-    if (checkId === formData.pbUserId) {
+    if (checkId === formData.pmUserId) {
       DeleteBoard2();
     } else if (checkId === null) {
       alert("로그인후 이용하세요");
-    } else if (checkId !== formData.pbUserId) {
+    } else if (checkId !== formData.pmUserId) {
       alert("회원님의 게시글이 아닙니다");
     }
   };
@@ -124,9 +124,9 @@ export default function DetailBoard() {
           작성자 :{" "}
           <input
             type="text"
-            value={formData.pbUserId}
+            value={formData.pmUserId}
             onChange={(e) => {
-              setFormData({ ...formData, pbUserId: e.target.value });
+              setFormData({ ...formData, pmUserId: e.target.value });
             }}
             readOnly
           />

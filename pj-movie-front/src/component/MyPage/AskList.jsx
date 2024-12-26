@@ -18,7 +18,7 @@ export default function AskList() {
       url: "/api/board/askList/" + checkId,
       method: "Get",
       data: {
-        pbUserId: checkId,
+        pmUserId: checkId,
       },
       headers: { "Content-type": `application/json` },
     };
