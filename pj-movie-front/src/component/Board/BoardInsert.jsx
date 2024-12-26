@@ -14,13 +14,13 @@ export default function BoartWriting() {
     console.log(formData);
 
     const option = {
-      url: "/api/board/boardInsert/" + formData.pbCategoryCd,
+      url: "/api/board/boardInsert/" + formData.pbcCd,
       method: "POST",
       data: {
         pbTitle: formData.pbTitle,
         pbContent: formData.pbContent,
-        pbCategoryCd: formData.pbCategoryCd,
-        pbUserId: checkId,
+        pbcCd: formData.pbcCd,
+        pmUserId: checkId,
       },
       headers: {
         "Content-Type": `application/json`,
@@ -43,7 +43,7 @@ export default function BoartWriting() {
         onChange={(e) => {
           setFormData({
             ...formData,
-            pbCategoryCd: parseInt(e.target.value),
+            pbcCd: parseInt(e.target.value),
           });
         }}
       >
