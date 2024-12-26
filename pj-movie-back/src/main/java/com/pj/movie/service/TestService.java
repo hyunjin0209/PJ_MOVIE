@@ -12,7 +12,7 @@ import java.util.List;
 public interface TestService {
     PmMemberDto login(String pmUserId, String pmUserPwd);
     List<PmBoardCatgDto> getCategoryData();
-    PmBoardDto select(String pbCategoryCd, String pbUserId);
+    PmBoardDto select(String pbcCd, String pmUserId);
 }
 
 

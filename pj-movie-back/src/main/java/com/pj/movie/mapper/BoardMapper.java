@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 @Mapper
 public interface BoardMapper {
-    List<PmBoardDto> checkBoardList(@Param("pbCategoryCd")int pbCategoryCd);
+    List<PmBoardDto> checkBoardList(@Param("pbcCd")int pbcCd);
     int boardInsert(PmBoardDto pmBoardDto);
     int updateBoard(PmBoardDto pmBoardDto);
     int deleteDetailBoard(PmBoardDto pmBoardDto);

@@ -8,10 +8,10 @@ import java.util.Date;
 @Data
 public class PmBoardDto {
     private int pbId;
-    private int pbCategoryCd;
+    private int pbcCd;
     private String pbTitle;
     private String pbContent;
-    private String pbUserId;
+    private String pmUserId;
     private Date pbRegDt;
 
 

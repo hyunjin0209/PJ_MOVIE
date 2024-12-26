@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public interface BoardService {
-    List<PmBoardDto> checkBoardList(int pbCategoryCd);
+    List<PmBoardDto> checkBoardList(int pbcCd);
     int boardInsert(PmBoardDto pmBoardDto);
     int updateBoard(PmBoardDto pmBoardDto);
     int deleteDetailBoard(PmBoardDto pmBoardDto);
