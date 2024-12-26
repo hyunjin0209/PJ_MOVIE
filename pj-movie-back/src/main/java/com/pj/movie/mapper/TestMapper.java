@@ -12,5 +12,5 @@ import java.util.List;
 public interface TestMapper {
     PmMemberDto login(@Param("pmUserId") String pmUserId, @Param("pmUserPwd") String pmUserPwd);
     List<PmBoardCatgDto> getCategoryData();
-    PmBoardDto select(@Param("pbCategoryCd") String pbCategoryCd, @Param("pbUserId")String pbUserId);
+    PmBoardDto select(@Param("pbcCd") String pbcCd, @Param("pmUserId")String pmUserId);
 }

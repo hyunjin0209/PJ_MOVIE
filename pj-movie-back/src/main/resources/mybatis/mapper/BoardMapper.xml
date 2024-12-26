@@ -7,20 +7,20 @@
     select
     PB_ID,
     PB_TITLE,
-    PB_USER_ID,
-    PB_CATEGORY_CD
+    PM_USER_ID,
+    PBC_CD
     from PM_BOARD
-    <if test="pbCategoryCd!=0">
-        where PB_CATEGORY_CD = #{pbCategoryCd};
+    <if test="pbcCd!=0">
+        where PBC_CD = #{pbcCd};
     </if>
 </select>
 
 <insert id="boardInsert" parameterType="com.pj.movie.dto.PmBoardDto">
 insert
 into PM_BOARD(
-PB_CATEGORY_CD,PB_TITLE,PB_CONTENT,PB_USER_ID)
+PBC_CD,PB_TITLE,PB_CONTENT,PM_USER_ID)
 values(
-#{pbCategoryCd},#{pbTitle},#{pbContent},#{pbUserId})
+#{pbcCd},#{pbTitle},#{pbContent},#{pmUserId})
 
 
 </insert>
@@ -37,16 +37,16 @@ where PB_ID = #{pbId}
 </delete>
 
 <select id="detailBoard" parameterType="int" resultType="com.pj.movie.dto.PmBoardDto">
-select PB_TITLE,PB_CONTENT,PB_ID,PB_USER_ID,PB_REG_DT
+select PB_TITLE,PB_CONTENT,PB_ID,PM_USER_ID,PB_REG_DT
 from PM_BOARD
 where PB_ID = #{pbId}
 </select>
 
 <select id="askList" resultType="com.pj.movie.dto.PmBoardAndCatgDto" >
     select
-    T1.PB_TITLE, T1.PB_USER_ID, T1.PB_REG_DT, T2.PBC_NAME, T1.PB_ID
+    T1.PB_TITLE, T1.PM_USER_ID, T1.PB_REG_DT, T2.PBC_NAME, T1.PB_ID
     FROM PM_BOARD T1
-    LEFT JOIN PM_BOARD_CATG T2 ON T1.PB_CATEGORY_CD = T2.PBC_CD
-    where PB_USER_ID = #{pbUserId}
+    LEFT JOIN PM_BOARD_CATG T2 ON T1.PBC_CD = T2.PBC_CD
+    where PM_USER_ID = #{pmUserId}
 </select>
 </mapper>

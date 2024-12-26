@@ -20,11 +20,11 @@ public class BoardController {
     @Autowired
     public BoardService boardService;
 
-    @GetMapping("/checkBoardList/{pbCategoryCd}")
-    public List<PmBoardDto> checkBoardList(@PathVariable("pbCategoryCd") int pbCategoryCd){
-        return boardService.checkBoardList(pbCategoryCd);}
+    @GetMapping("/checkBoardList/{pbcCd}")
+    public List<PmBoardDto> checkBoardList(@PathVariable("pbcCd") int pbcCd){
+        return boardService.checkBoardList(pbcCd);}
 
-    @PostMapping("/boardInsert/{pbCategoryCd}")
+    @PostMapping("/boardInsert/{pbcCd}")
     public int boardInsert(@RequestBody PmBoardDto pmBoardDto){
         return boardService.boardInsert(pmBoardDto);}
 
@@ -39,8 +39,8 @@ public class BoardController {
     @GetMapping ("/detailBoard/{pbId}")
     public PmBoardDto detailBoard(@PathVariable("pbId") int pmBoardDto){
         return boardService.detailBoard(pmBoardDto);}
-    @GetMapping("/askList/{pbUserId}")
-    public List<PmBoardAndCatgDto> askList(@PathVariable("pbUserId") String pmBoardAndCatgDto){
+    @GetMapping("/askList/{pmUserId}")
+    public List<PmBoardAndCatgDto> askList(@PathVariable("pmUserId") String pmBoardAndCatgDto){
         return boardService.askList(pmBoardAndCatgDto);}
 
 }

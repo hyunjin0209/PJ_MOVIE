@@ -22,8 +22,8 @@ public class TestServiceImpl implements TestService {
     public List<PmBoardCatgDto> getCategoryData(){
             return testMapper.getCategoryData();}
     
-    public PmBoardDto select(String pbCategoryCd, String pbUserId){
-        return  testMapper.select(pbCategoryCd,pbUserId);}
+    public PmBoardDto select(String pbcCd, String pmUserId){
+        return  testMapper.select(pbcCd,pmUserId);}
     }
 
 

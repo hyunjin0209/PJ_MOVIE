@@ -18,7 +18,7 @@
     <select id="select" resultType="com.pj.movie.dto.PmBoardDto" parameterType="String">
         select *
             from PM_BOARD
-        where PB_CATEGORY_CD = #{pbCategoryCd}
-            and PB_USER_ID = #{pbUserId};
+        where PBC_CD = #{pbcCd}
+            and PM_USER_ID = #{pmUserId};
     </select>
 </mapper>

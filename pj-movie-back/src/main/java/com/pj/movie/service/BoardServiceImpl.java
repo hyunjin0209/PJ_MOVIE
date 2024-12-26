@@ -13,8 +13,8 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     BoardMapper boardMapper;
     @Override
-    public List<PmBoardDto> checkBoardList(int pbCategoryCd){
-        return  boardMapper.checkBoardList(pbCategoryCd);
+    public List<PmBoardDto> checkBoardList(int pbcCd){
+        return  boardMapper.checkBoardList(pbcCd);
     }
 
     @Override

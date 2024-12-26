@@ -31,10 +31,10 @@ public class TestController {
     public List<PmBoardCatgDto> getCategoryData(){
         return testService.getCategoryData();}
 
-    @GetMapping("/select/{pbCategoryCd}/{pbUserId}")
-    public PmBoardDto select(@PathVariable("pbCategoryCd") String pbCategoryCd,
-                             @PathVariable("pbUserId") String pbUserId) {
-        return testService.select(pbCategoryCd, pbUserId);}
+    @GetMapping("/select/{pbcCd}/{pmUserId}")
+    public PmBoardDto select(@PathVariable("pbcCd") String pbcCd,
+                             @PathVariable("pmUserId") String pmUserId) {
+        return testService.select(pbcCd, pmUserId);}
 }
 
 
