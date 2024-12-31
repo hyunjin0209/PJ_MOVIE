@@ -15,7 +15,7 @@
         from PM_BOARD_CATG;
     </select>
     
-    <select id="select" resultType="com.pj.movie.dto.PmBoardDto" parameterType="String">
+    <select id="select" resultType="com.pj.movie.dto.PmBoardDto" >
         select *
             from PM_BOARD
         where PBC_CD = #{pbcCd}

@@ -13,7 +13,6 @@ public class PmBoardAndCatgDto {
     private String pbContent;
     private String pmUserId;
     private Date pbRegDt;
-    private int pbcCd;
     private String pbcName;
 
 }
