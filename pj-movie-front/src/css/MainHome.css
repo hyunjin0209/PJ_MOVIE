@@ -1,18 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* 전체 스타일 초기화 */
 body {
-  background-color: #1e1e1e; /* 전체 배경을 어두운 회색으로 설정 */
-  color: #fff; /* 기본 텍스트 색상 */
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #121212; /* 어두운 테마 배경 */
+  color: #ffffff; /* 텍스트 기본 색상 */
 }
 
+/* body 기본 스타일 */
+body {
+  background-color: #1e1e1e;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* 메인 홈 레이아웃 */
 .main-home {
   font-family: Arial, sans-serif;
 }
 
+/* 헤더 스타일 */
 .header {
   background-color: #333;
   color: #fff;
@@ -24,8 +30,10 @@ body {
 .header h1 {
   margin: 0;
   font-size: 24px;
+  cursor: pointer; /* 클릭하면 홈으로 이동 */
 }
 
+/* 버튼 컨테이너 스타일 */
 .button-container {
   position: absolute;
   top: 50%;
@@ -40,16 +48,17 @@ body {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  background-color: #333; /* 헤더와 같은 배경색 */
+  background-color: #444;
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
 .button-container button:hover {
-  background-color: #555; /* 버튼 hover 시 약간 더 밝은 회색 */
+  background-color: #555;
 }
 
+/* 영화 리스트 그리드 */
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -57,10 +66,11 @@ body {
   padding: 20px;
 }
 
+/* 영화 항목 스타일 */
 .movie-item {
-  background-color: #2a2a2a; /* 어두운 배경색의 카드 */
+  background-color: #2a2a2a;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 그림자 어둡게 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 10px;
   transition: transform 0.3s ease;
@@ -73,16 +83,81 @@ body {
 .movie-no,
 .movie-title {
   font-weight: bold;
-  color: #ddd; /* 텍스트를 어둡지 않게 설정 */
+  color: #ddd;
   margin: 5px 0;
 }
 
 .movie-image {
-  width: 100%;
-  height: 500px;
-  border-radius: 8px;
+  width: 100%; /* 가로 100% */
+  height: auto; /* 세로 비율에 맞춰 자동으로 조정 */
+  max-height: 500px; /* 세로 최대 높이를 설정 */
+  object-fit: contain; /* 이미지를 왜곡 없이 비율 맞게 표시 */
+  border-radius: 8px; /* 카드 모서리 둥글게 */
 }
 
+/* 페이지네이션 스타일 */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 5%;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.pagination a:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.pagination .active a {
+  background-color: #ff5722;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #ff5722;
+}
+
+.pagination .disabled a {
+  background-color: #333;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.pagination .prev a,
+.pagination .next a {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 영화 목록 제목 스타일 */
+h1 {
+  text-align: center;
+  color: #fff;
+  margin: 20px 0;
+  font-size: 28px;
+}
+
+/* 푸터 스타일 */
 .footer {
   background-color: #333;
   color: #fff;
@@ -103,5 +178,11 @@ body {
 @media (max-width: 480px) {
   .movie-grid {
     grid-template-columns: 1fr;
+  }
+
+  .button-container {
+    position: static;
+    margin-top: 10px;
+    text-align: center;
   }
 }

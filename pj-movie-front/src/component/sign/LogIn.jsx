@@ -1,14 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/css/Login.css";
 export default function LogIn() {
   const [formData, setFormData] = useState();
   const nav = useNavigate();
   const logIn = () => {
     loginData();
   };
+
   console.log(formData);
+
   const loginData = async () => {
     const option = {
       url: "/api/auth/userLogin",
@@ -43,26 +45,45 @@ export default function LogIn() {
   };
 
   return (
-    <>
-      아이디
-      <input
-        type="text"
-        onChange={(e) => {
-          setFormData({ ...formData, pmUserId: e.target.value });
-        }}
-      />
-      <br />
-      비밀번호
-      <input
-        type="password"
-        onChange={(e) => {
-          setFormData({ ...formData, pmUserPwd: e.target.value });
-        }}
-      />
-      <br />
-      <button onClick={logIn}>로그인</button>
-      <button onClick={() => nav("/FindId")}>아이디찾기</button>
-      <button onClick={() => nav("/ResetPassword")}>비밀번호변경</button>
-    </>
+    <div className="main-home">
+      <header className="header">
+        <h1 onClick={() => nav("/")}>영화 홈페이지</h1>
+      </header>
+
+      <div className="main-login">
+        <div className="container">
+          <h2>로그인</h2>
+          <div className="input-with-button">
+            <input
+              type="text"
+              placeholder="아이디"
+              onChange={(e) =>
+                setFormData({ ...formData, pmUserId: e.target.value })
+              }
+            />
+            <input
+              type="password"
+              placeholder="비밀번호"
+              onChange={(e) =>
+                setFormData({ ...formData, pmUserPwd: e.target.value })
+              }
+            />
+            <button className="login-button" onClick={logIn}>
+              로그인
+            </button>
+          </div>
+          <div className="extra-buttons-horizontal">
+            <button onClick={() => nav("/FindId")}>아이디 찾기</button>
+            <button onClick={() => nav("/ResetPassword")}>비밀번호 변경</button>
+          </div>
+        </div>
+      </div>
+
+      <footer className="footer">
+        <p>
+          © 2024 Movie homepage project. <br />☎ 02-000-0000.
+        </p>
+      </footer>
+    </div>
   );
 }
