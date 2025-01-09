@@ -1,5 +1,6 @@
 package com.pj.movie.controller;
 
+import com.pj.movie.dto.PmTheaterCatgDto;
 import com.pj.movie.dto.PmTheaterDto;
 
 import com.pj.movie.service.ReserVationService;
@@ -15,7 +16,10 @@ public class ReserVationController {
     @Autowired
     public ReserVationService reserVationService;
 
-    @GetMapping("/regionList")
-    public List<PmTheaterDto> regionList(@PathVariable String pmTheaterDto){
+    @GetMapping("/theatercatg/{pmUserId}")
+    public List<PmTheaterCatgDto> theatercatg(@PathVariable("pmUserId") String pmTheaterCatgDto){
+        return reserVationService.theatercatg(pmTheaterCatgDto);}
+    @GetMapping("/regionList/{ptArea}")
+    public List<PmTheaterDto> regionList(@PathVariable("ptArea") String pmTheaterDto){
         return reserVationService.regionList(pmTheaterDto);}
 }
