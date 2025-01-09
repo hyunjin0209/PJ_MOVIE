@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { MovieData } from "../image.js/MovieData/MovieData";
-import "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/css/MainHome.css";
+import "../css/MainHome.css";
 import { useState } from "react";
 import Pagination from "react-js-pagination";
 export default function NowScreening() {
