@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export default function SelectRegion() {
   const [regionList, setRegionList] = useState([]);
   const [areaList, setAreaList] = useState([]);
+  const [movieList, setMovieList] = useState([]);
   let checkId = sessionStorage.getItem("id");
 
   useEffect(() => {
@@ -39,6 +40,17 @@ export default function SelectRegion() {
       console.log(response.data);
     }
   };
+  const Movie = async () => {
+    const option = {
+      url: "/api/reservation/movieList/" + checkId,
+      method: "GET",
+      headers: { "Content-type": `application/json` },
+    };
+    const response = await axios(option);
+    if (response.status === 200 && response.data) {
+      setMovieList(response.data);
+    }
+  };
   return (
     <>
       <div>
@@ -51,8 +63,17 @@ export default function SelectRegion() {
       <br />
       <div>
         {areaList.map((data, index) => (
-          <div key={index}>
+          <div key={index} onClick={Movie}>
             <div>{data.ptName}</div>
+          </div>
+        ))}
+      </div>
+      <br />
+
+      <div>
+        {movieList.map((data, index) => (
+          <div key={index}>
+            <div>{data.pmName}</div>
           </div>
         ))}
       </div>
