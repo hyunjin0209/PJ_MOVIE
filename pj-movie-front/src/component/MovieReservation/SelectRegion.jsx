@@ -3,45 +3,59 @@ import { useEffect, useState } from "react";
 
 export default function SelectRegion() {
   const [regionList, setRegionList] = useState([]);
-  //   let checkId = sessionStorage.getItem("id");
-  //   useEffect(() => {
-  //     // if (checkId) {
-  //     SelectRegionData();
-  //   }, []);
+  const [areaList, setAreaList] = useState([]);
+  let checkId = sessionStorage.getItem("id");
 
+  useEffect(() => {
+    {
+      SelectRegionData();
+    }
+  }, []);
+
+  // console.log(regionList);
   const SelectRegionData = async () => {
     const option = {
-      url: "/api/reservation/regionList",
+      url: "/api/reservation/theatercatg/" + checkId,
       method: "GET",
       headers: { "Content-type": `application/json` },
     };
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setRegionList(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     }
   };
 
+  const SelectTheaterData = async (ptArea) => {
+    const option = {
+      url: "/api/reservation/regionList/" + ptArea,
+      method: "GET",
+      headers: { "Content-type": `application/json` },
+    };
+    const response = await axios(option);
+    if (response.status === 200 && response.data) {
+      setAreaList(response.data);
+      // console.log(response.data);
+      console.log(response.data);
+    }
+  };
   return (
     <>
-      <button onClick={SelectRegionData}>dsa</button>
-      {/* <div>
-        <tr style={{ fontWeight: "bold" }}>
-          <td>No.</td>
-          <td>제목</td>
-          <td>작성자ID</td>
-        </tr>
-
+      <div>
         {regionList.map((data, index) => (
-          <tr
-            key={index}
-            style={{ color: "white", cursor: "pointer" }}
-            onClick={() => nav("/MainPage", { state: { data } })}
-          >
-            <td>{data.ptArea}</td>
-          </tr>
+          <div key={index} onClick={() => SelectTheaterData(data.ptArea)}>
+            <div>{data.ptArea}</div>
+          </div>
         ))}
-      </div> */}
+      </div>
+      <br />
+      <div>
+        {areaList.map((data, index) => (
+          <div key={index}>
+            <div>{data.ptName}</div>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
