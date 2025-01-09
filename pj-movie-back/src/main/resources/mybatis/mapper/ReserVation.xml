@@ -10,13 +10,13 @@
 
     </select>
     <select id="regionList" resultType="com.pj.movie.dto.PmTheaterDto" parameterType="String">
-
         select PT_NAME
         from PM_THEATER
         where PT_AREA = #{ptArea}
-
-
     </select>
-
+    <select id="movieList" resultType="com.pj.movie.dto.PmMovieDto" parameterType="String">
+        select PM_NAME
+        from PM_MOVIE
+    </select>
 
 </mapper>

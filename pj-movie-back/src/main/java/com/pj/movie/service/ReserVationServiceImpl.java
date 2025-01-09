@@ -1,6 +1,7 @@
 package com.pj.movie.service;
 
 
+import com.pj.movie.dto.PmMovieDto;
 import com.pj.movie.dto.PmTheaterCatgDto;
 import com.pj.movie.dto.PmTheaterDto;
 import com.pj.movie.mapper.ReserVationMapper;
@@ -17,4 +18,6 @@ public class ReserVationServiceImpl implements ReserVationService{
     public List<PmTheaterCatgDto> theatercatg(String pmTheaterCatgDto){return reserVationMapper.theatercatg(pmTheaterCatgDto);}
     @Override
     public List<PmTheaterDto>regionList(String pmTheaterDto){return reserVationMapper.regionList(pmTheaterDto);}
+    @Override
+    public List<PmMovieDto>movieList(String pmMovieDto){return reserVationMapper.movieList(pmMovieDto);}
 }
