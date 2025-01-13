@@ -1,9 +1,6 @@
 package com.pj.movie.controller;
 
-import com.pj.movie.dto.PmDayDto;
-import com.pj.movie.dto.PmMovieDto;
-import com.pj.movie.dto.PmTheaterCatgDto;
-import com.pj.movie.dto.PmTheaterDto;
+import com.pj.movie.dto.*;
 
 import com.pj.movie.service.ReserVationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +27,7 @@ public class ReserVationController {
     @GetMapping("/movieList/{pmUserId}")
     public List<PmMovieDto> movieList(@PathVariable("pmUserId") String pmMovieDto){
         return reserVationService.movieList(pmMovieDto);}
+    @GetMapping("/screeningtime/{pmId}")
+    public List<PmTimeDto> screeningtime(@PathVariable("pmId") int pmTimeDto){
+        return reserVationService.screeningtime(pmTimeDto);}
 }

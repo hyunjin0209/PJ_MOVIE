@@ -15,12 +15,21 @@
         where PT_AREA = #{ptArea}
     </select>
     <select id="movieList" resultType="com.pj.movie.dto.PmMovieDto" parameterType="String">
-        select PM_NAME
+        select PM_NAME,PM_ID
         from PM_MOVIE
     </select>
     <select id="screeningDate" resultType="com.pj.movie.dto.PmDayDto" parameterType="String">
         select yyyy,mm,dd
         from PM_DAY
+    </select>
+    <select id="screeningtime" resultType="com.pj.movie.dto.PmTimeDto" parameterType="int">
+        select PRH_ROOM,PRH_HH
+        FROM PM_ROOM_HH
+        where PRH_ROOM=#{pmId}
+
+
+
+
     </select>
 
 </mapper>
