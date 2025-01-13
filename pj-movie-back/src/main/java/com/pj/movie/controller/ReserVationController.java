@@ -1,5 +1,6 @@
 package com.pj.movie.controller;
 
+import com.pj.movie.dto.PmDayDto;
 import com.pj.movie.dto.PmMovieDto;
 import com.pj.movie.dto.PmTheaterCatgDto;
 import com.pj.movie.dto.PmTheaterDto;
@@ -23,6 +24,9 @@ public class ReserVationController {
     @GetMapping("/regionList/{ptArea}")
     public List<PmTheaterDto> regionList(@PathVariable("ptArea") String pmTheaterDto){
         return reserVationService.regionList(pmTheaterDto);}
+    @GetMapping("/screeningDate/{pmUserId}")
+    public List<PmDayDto> screeningDate(@PathVariable("pmUserId") String pmDayDto){
+        return reserVationService.screeningDate(pmDayDto);}
     @GetMapping("/movieList/{pmUserId}")
     public List<PmMovieDto> movieList(@PathVariable("pmUserId") String pmMovieDto){
         return reserVationService.movieList(pmMovieDto);}

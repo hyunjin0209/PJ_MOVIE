@@ -18,5 +18,9 @@
         select PM_NAME
         from PM_MOVIE
     </select>
+    <select id="screeningDate" resultType="com.pj.movie.dto.PmDayDto" parameterType="String">
+        select yyyy,mm,dd
+        from PM_DAY
+    </select>
 
 </mapper>

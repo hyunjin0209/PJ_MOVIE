@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/css/Login.css";
+import "../../css/Login.css";
 export default function LogIn() {
   const [formData, setFormData] = useState();
   const nav = useNavigate();
