@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "c:/Users/82108/Desktop/B.O-project/PJ_MOVIE/pj-movie-front/src/css/MainHome.css";
+import "../../css/MainHome.css";
 export default function MainPage() {
   const nav = useNavigate();
 

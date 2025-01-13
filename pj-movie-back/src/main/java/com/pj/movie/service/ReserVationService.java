@@ -1,10 +1,7 @@
 package com.pj.movie.service;
 
 
-import com.pj.movie.dto.PmBoardAndCatgDto;
-import com.pj.movie.dto.PmMovieDto;
-import com.pj.movie.dto.PmTheaterCatgDto;
-import com.pj.movie.dto.PmTheaterDto;
+import com.pj.movie.dto.*;
 
 import org.springframework.stereotype.Service;
 
@@ -16,5 +13,8 @@ public interface ReserVationService {
 
     List<PmTheaterDto> regionList(String pmTheaterDto);
 
+    List<PmDayDto> screeningDate(String pmDayDto);
+
     List<PmMovieDto> movieList(String pmMovieDto);
+
 }
