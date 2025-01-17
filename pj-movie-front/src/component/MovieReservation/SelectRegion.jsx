@@ -8,6 +8,7 @@ export default function SelectRegion() {
   const [movieList, setMovieList] = useState([]);
   const [screeningDate, setScreeningDate] = useState([]);
   const [screeningTime, setScreeningTime] = useState([]);
+  const [selectSeat, setSelectSeat] = useState([]);
   let checkId = sessionStorage.getItem("id");
   const nav = useNavigate();
   useEffect(() => {
@@ -80,6 +81,18 @@ export default function SelectRegion() {
       console.log();
     }
   };
+  const SelectSeat = async () => {
+    const option = {
+      url: "/api/reservation/selectSeat/" + checkId,
+      method: "GET",
+      headers: { "Content-type": `application/json` },
+    };
+    const response = await axios(option);
+    if (response.status === 200 && response.data) {
+      setSelectSeat(response.data);
+      console.log();
+    }
+  };
 
   return (
     <>
@@ -120,11 +133,20 @@ export default function SelectRegion() {
 
       <div>
         {screeningTime.map((data, index) => (
-          <div key={index}>
+          <div key={index} onClick={() => SelectSeat()}>
             <div>{data.prhRoom + "상영관" + " " + data.prhHh}</div>
           </div>
         ))}
       </div>
+      <br />
+      <div>
+        {selectSeat.map((data, index) => (
+          <div key={index}>
+            <button>{data.psSeatnum}</button>
+          </div>
+        ))}
+      </div>
+      <br />
     </>
   );
 }
