@@ -22,4 +22,6 @@ public class ReserVationServiceImpl implements ReserVationService{
     public List<PmMovieDto>movieList(String pmMovieDto){return reserVationMapper.movieList(pmMovieDto);}
     @Override
     public List<PmTimeDto>screeningtime(int pmTimeDto){return reserVationMapper.screeningtime(pmTimeDto);}
+    @Override
+    public List<PmSeatDto>selectSeat(String pmSeatDto){return reserVationMapper.selectSeat(pmSeatDto);}
 }

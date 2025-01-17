@@ -18,4 +18,6 @@ public interface ReserVationService {
     List<PmMovieDto> movieList(String pmMovieDto);
 
     List<PmTimeDto> screeningtime(int pmTimeDto);
+
+    List<PmSeatDto> selectSeat(String pmSeatDto);
 }

@@ -13,4 +13,5 @@ public interface ReserVationMapper {
     List<PmDayDto>screeningDate(String pmDayDto);
     List<PmMovieDto>movieList(String pmMovieDto);
     List<PmTimeDto>screeningtime(int pmTimeDto);
+    List<PmSeatDto>selectSeat(String pmSeatDto);
 }
