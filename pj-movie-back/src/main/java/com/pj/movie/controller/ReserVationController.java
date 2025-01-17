@@ -30,4 +30,7 @@ public class ReserVationController {
     @GetMapping("/screeningtime/{pmId}")
     public List<PmTimeDto> screeningtime(@PathVariable("pmId") int pmTimeDto){
         return reserVationService.screeningtime(pmTimeDto);}
+    @GetMapping("/selectSeat/{pmUserId}")
+    public List<PmSeatDto> selectSeat(@PathVariable("pmUserId")String pmSeatDto ){
+        return reserVationService.selectSeat(pmSeatDto);}
 }
