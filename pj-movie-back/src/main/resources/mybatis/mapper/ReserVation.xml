@@ -31,5 +31,11 @@
         select *
         from PM_SEAT
     </select>
+    <insert id="tryReservation" parameterType="com.pj.movie.dto.PmMoviePlanDto">
+        insert
+        into PM_MOVIE_PLAN(PT_CD,PD_CD,PM_ID,PRH_CD,PS_CD)
+        values(#{ptCd},#{pdCd},#{pmId},#{prhCd},#{psCd})
+
+    </insert>
 
 </mapper>

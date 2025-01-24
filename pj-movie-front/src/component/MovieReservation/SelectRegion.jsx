@@ -9,6 +9,13 @@ export default function SelectRegion() {
   const [screeningDate, setScreeningDate] = useState([]);
   const [screeningTime, setScreeningTime] = useState([]);
   const [selectSeat, setSelectSeat] = useState([]);
+  const [reservation, setReservation] = useState({
+    ptCd: "",
+    pdCd: "",
+    pmId: "",
+    prhCd: "",
+    psCd: "",
+  });
   let checkId = sessionStorage.getItem("id");
   const nav = useNavigate();
   useEffect(() => {
@@ -19,7 +26,7 @@ export default function SelectRegion() {
       SelectRegionData();
     }
   }, []);
-
+  console.log();
   // console.log(regionList);
   const SelectRegionData = async () => {
     const option = {
@@ -30,6 +37,7 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setRegionList(response.data);
+
       // console.log(response.data);
     }
   };
@@ -43,11 +51,14 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setAreaList(response.data);
-      // console.log(response.data);
-      console.log(response.data);
+      console.log(reservation);
     }
   };
-  const ScreeningDate = async () => {
+  const ScreeningDate = async (ptName) => {
+    const ptCode = areaList.find((data) => data.ptName === ptName).ptCd;
+    setReservation({ ...reservation, ptCd: ptCode });
+    // const pdCode = screeningDate.find((data) => data.dd === dd).pdCd;
+    // setReservation({ ...reservation, pdCd: pdCode });
     const option = {
       url: "/api/reservation/screeningDate/" + checkId,
       method: "GET",
@@ -56,9 +67,12 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setScreeningDate(response.data);
+      console.log(reservation);
     }
   };
-  const Movie = async () => {
+  const Movie = async (dd) => {
+    const pdCode = screeningDate.find((data) => data.dd === dd).pdCd;
+    setReservation({ ...reservation, pdCd: pdCode });
     const option = {
       url: "/api/reservation/movieList/" + checkId,
       method: "GET",
@@ -67,9 +81,12 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setMovieList(response.data);
+      console.log(reservation);
     }
   };
   const ScreeningTime = async (pmId) => {
+    // const pmCode = movieList.find((data) => data.pmId === pmId).pmId;
+    setReservation({ ...reservation, pmId: pmId });
     const option = {
       url: "/api/reservation/screeningtime/" + pmId,
       method: "GET",
@@ -78,10 +95,12 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setScreeningTime(response.data);
-      console.log();
+      console.log(reservation);
     }
   };
-  const SelectSeat = async () => {
+  const SelectSeat = async (prhHh) => {
+    const prhCode = screeningTime.find((data) => data.prhHh === prhHh).prhCd;
+    setReservation({ ...reservation, prhCd: prhCode });
     const option = {
       url: "/api/reservation/selectSeat/" + checkId,
       method: "GET",
@@ -90,7 +109,34 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setSelectSeat(response.data);
-      console.log();
+      console.log(reservation);
+    }
+  };
+  const SelectSeatNumber = (psSeatnum) => {
+    const psCode = selectSeat.find((data) => data.psSeatnum === psSeatnum).psCd;
+    setReservation({ ...reservation, psCd: psCode });
+    console.log(reservation);
+  };
+  const Reservation = async () => {
+    const option = {
+      url: "/api/reservation/tryReservation",
+      method: "POST",
+      data: {
+        ptCd: reservation.ptCd,
+        pmId: reservation.pmId,
+        pdCd: reservation.pdCd,
+        psCd: reservation.psCd,
+        prhCd: reservation.prhCd,
+      },
+      headers: { "Content-type": `application/json` },
+    };
+
+    const response = await axios(option);
+
+    if (response.status === 200 && response.data) {
+      setReservation(response.data);
+      alert("예매완료 되었습니다");
+      nav("/CheckReservation");
     }
   };
 
@@ -106,7 +152,7 @@ export default function SelectRegion() {
       <br />
       <div>
         {areaList.map((data, index) => (
-          <div key={index} onClick={ScreeningDate}>
+          <div key={index} onClick={() => ScreeningDate(data.ptName)}>
             <div>{data.ptName}</div>
           </div>
         ))}
@@ -115,7 +161,7 @@ export default function SelectRegion() {
 
       <div>
         {screeningDate.map((data, index) => (
-          <div key={index} onClick={Movie}>
+          <div key={index} onClick={() => Movie(data.dd)}>
             <div>{data.yyyy + " " + data.mm + " " + data.dd}</div>
           </div>
         ))}
@@ -133,7 +179,7 @@ export default function SelectRegion() {
 
       <div>
         {screeningTime.map((data, index) => (
-          <div key={index} onClick={() => SelectSeat()}>
+          <div key={index} onClick={() => SelectSeat(data.prhHh)}>
             <div>{data.prhRoom + "상영관" + " " + data.prhHh}</div>
           </div>
         ))}
@@ -141,12 +187,13 @@ export default function SelectRegion() {
       <br />
       <div>
         {selectSeat.map((data, index) => (
-          <div key={index}>
+          <div key={index} onClick={() => SelectSeatNumber(data.psSeatnum)}>
             <button>{data.psSeatnum}</button>
           </div>
         ))}
       </div>
       <br />
+      <button onClick={() => Reservation}>예매하기</button>
     </>
   );
 }
