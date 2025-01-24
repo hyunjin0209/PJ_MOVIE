@@ -33,4 +33,8 @@ public class ReserVationController {
     @GetMapping("/selectSeat/{pmUserId}")
     public List<PmSeatDto> selectSeat(@PathVariable("pmUserId")String pmSeatDto ){
         return reserVationService.selectSeat(pmSeatDto);}
+    @PostMapping("/tryReservation")
+    public int tryReservation(@RequestBody PmMoviePlanDto pmMoviePlanDto){
+        return reserVationService.tryReservation(pmMoviePlanDto);
+    }
 }
