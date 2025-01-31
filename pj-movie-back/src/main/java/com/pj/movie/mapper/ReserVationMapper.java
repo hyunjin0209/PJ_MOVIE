@@ -13,6 +13,6 @@ public interface ReserVationMapper {
     List<PmDayDto>screeningDate(String pmDayDto);
     List<PmMovieDto>movieList(String pmMovieDto);
     List<PmTimeDto>screeningtime(int pmTimeDto);
-    List<PmSeatDto>selectSeat(String pmSeatDto);
+    List<PmSeatDto>selectSeat(RequestSeatInfo requestSeatInfo);
     int tryReservation(PmMoviePlanDto pmMoviePlanDto);
 }

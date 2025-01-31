@@ -27,9 +27,20 @@
         FROM PM_ROOM_HH
         where PRH_ROOM=#{pmId}
     </select>
-    <select id="selectSeat" resultType="com.pj.movie.dto.PmSeatDto" parameterType="String">
-        select *
-        from PM_SEAT
+    <select id="selectSeat" resultType="com.pj.movie.dto.PmSeatDto" parameterType="com.pj.movie.dto.RequestSeatInfo">
+        select
+        T1.*,
+        (
+        select
+        COUNT(*)
+        FROM PM_MOVIE_PLAN S1
+        WHERE S1.PT_CD = #{ptCd}
+        and S1.PM_ID = #{pmId}
+        and S1.PD_CD = #{pdCd}
+        and S1.PRH_CD = #{prhCd}
+        and S1.PS_CD = T1.PS_CD
+        ) as CHECK_SEAT
+        from PM_SEAT T1;
     </select>
     <insert id="tryReservation" parameterType="com.pj.movie.dto.PmMoviePlanDto">
         insert

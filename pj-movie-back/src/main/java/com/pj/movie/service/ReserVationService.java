@@ -19,7 +19,7 @@ public interface ReserVationService {
 
     List<PmTimeDto> screeningtime(int pmTimeDto);
 
-    List<PmSeatDto> selectSeat(String pmSeatDto);
+    List<PmSeatDto> selectSeat(RequestSeatInfo requestSeatInfo);
 
     int tryReservation(PmMoviePlanDto pmMoviePlanDto);
 }

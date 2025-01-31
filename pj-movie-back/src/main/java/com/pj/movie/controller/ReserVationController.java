@@ -30,9 +30,19 @@ public class ReserVationController {
     @GetMapping("/screeningtime/{pmId}")
     public List<PmTimeDto> screeningtime(@PathVariable("pmId") int pmTimeDto){
         return reserVationService.screeningtime(pmTimeDto);}
-    @GetMapping("/selectSeat/{pmUserId}")
-    public List<PmSeatDto> selectSeat(@PathVariable("pmUserId")String pmSeatDto ){
-        return reserVationService.selectSeat(pmSeatDto);}
+
+
+    @GetMapping("/selectSeat/{ptCd}/{pmId}/{pdCd}/{prhCd}")
+    public List<PmSeatDto> selectSeat(
+            @PathVariable("ptCd")int ptCd,
+            @PathVariable("pmId")int pmId,
+            @PathVariable("pdCd")int pdCd,
+            @PathVariable("prhCd")int prhCd
+    ){
+        RequestSeatInfo requestSeatInfo = new RequestSeatInfo(ptCd, pmId, pdCd, prhCd);
+        return reserVationService.selectSeat(requestSeatInfo);
+    }
+
     @PostMapping("/tryReservation")
     public int tryReservation(@RequestBody PmMoviePlanDto pmMoviePlanDto){
         return reserVationService.tryReservation(pmMoviePlanDto);

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function SelectRegion() {
+  const [step, setStep] = useState(1);
   const [regionList, setRegionList] = useState([]);
   const [areaList, setAreaList] = useState([]);
   const [movieList, setMovieList] = useState([]);
@@ -26,8 +27,7 @@ export default function SelectRegion() {
       SelectRegionData();
     }
   }, []);
-  console.log();
-  // console.log(regionList);
+
   const SelectRegionData = async () => {
     const option = {
       url: "/api/reservation/theatercatg/" + checkId,
@@ -37,8 +37,6 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setRegionList(response.data);
-
-      // console.log(response.data);
     }
   };
 
@@ -51,12 +49,13 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setAreaList(response.data);
-      console.log(reservation);
+      setStep(2);
     }
   };
   const ScreeningDate = async (ptName) => {
     const ptCode = areaList.find((data) => data.ptName === ptName).ptCd;
     setReservation({ ...reservation, ptCd: ptCode });
+
     // const pdCode = screeningDate.find((data) => data.dd === dd).pdCd;
     // setReservation({ ...reservation, pdCd: pdCode });
     const option = {
@@ -64,12 +63,14 @@ export default function SelectRegion() {
       method: "GET",
       headers: { "Content-type": `application/json` },
     };
+
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setScreeningDate(response.data);
-      console.log(reservation);
+      setStep(3);
     }
   };
+
   const Movie = async (dd) => {
     const pdCode = screeningDate.find((data) => data.dd === dd).pdCd;
     setReservation({ ...reservation, pdCd: pdCode });
@@ -81,7 +82,7 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setMovieList(response.data);
-      console.log(reservation);
+      setStep(4);
     }
   };
   const ScreeningTime = async (pmId) => {
@@ -95,105 +96,163 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setScreeningTime(response.data);
-      console.log(reservation);
+      setStep(5);
     }
   };
   const SelectSeat = async (prhHh) => {
     const prhCode = screeningTime.find((data) => data.prhHh === prhHh).prhCd;
     setReservation({ ...reservation, prhCd: prhCode });
     const option = {
-      url: "/api/reservation/selectSeat/" + checkId,
+      url:
+        "/api/reservation/selectSeat/" +
+        reservation.ptCd +
+        "/" +
+        reservation.pmId +
+        "/" +
+        reservation.pdCd +
+        "/" +
+        prhCode,
       method: "GET",
       headers: { "Content-type": `application/json` },
     };
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setSelectSeat(response.data);
-      console.log(reservation);
+      console.log(response.data);
+
+      setStep(6);
     }
   };
   const SelectSeatNumber = (psSeatnum) => {
     const psCode = selectSeat.find((data) => data.psSeatnum === psSeatnum).psCd;
     setReservation({ ...reservation, psCd: psCode });
-    console.log(reservation);
   };
   const Reservation = async () => {
-    const option = {
-      url: "/api/reservation/tryReservation",
-      method: "POST",
-      data: {
-        ptCd: reservation.ptCd,
-        pmId: reservation.pmId,
-        pdCd: reservation.pdCd,
-        psCd: reservation.psCd,
-        prhCd: reservation.prhCd,
-      },
-      headers: { "Content-type": `application/json` },
-    };
+    let check = checkForm();
 
-    const response = await axios(option);
+    if (check) {
+      const option = {
+        url: "/api/reservation/tryReservation",
+        method: "POST",
+        data: {
+          ptCd: reservation.ptCd,
+          pmId: reservation.pmId,
+          pdCd: reservation.pdCd,
+          psCd: reservation.psCd,
+          prhCd: reservation.prhCd,
+        },
+        headers: { "Content-type": `application/json` },
+      };
 
-    if (response.status === 200 && response.data) {
-      setReservation(response.data);
-      alert("예매완료 되었습니다");
-      nav("/CheckReservation");
+      const response = await axios(option);
+
+      if (response.status === 200 && response.data) {
+        setReservation(response.data);
+        alert("예매완료 되었습니다");
+        nav("/CheckReservation");
+      }
+    } else {
+      alert("모든 값을 선택해주세요");
+    }
+  };
+
+  const checkForm = () => {
+    if (
+      reservation.pdCd &&
+      reservation.pmId &&
+      reservation.prhCd &&
+      reservation.psCd &&
+      reservation.ptCd
+    ) {
+      return true;
+    } else {
+      return false;
     }
   };
 
   return (
     <>
-      <div>
-        {regionList.map((data, index) => (
-          <div key={index} onClick={() => SelectTheaterData(data.ptArea)}>
-            <div>{data.ptArea}</div>
+      {step === 1 && (
+        <>
+          <div>
+            {regionList.map((data, index) => (
+              <div key={index} onClick={() => SelectTheaterData(data.ptArea)}>
+                <div>{data.ptArea}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
-      <div>
-        {areaList.map((data, index) => (
-          <div key={index} onClick={() => ScreeningDate(data.ptName)}>
-            <div>{data.ptName}</div>
-          </div>
-        ))}
-      </div>
-      <br />
+          <br />
+        </>
+      )}
 
-      <div>
-        {screeningDate.map((data, index) => (
-          <div key={index} onClick={() => Movie(data.dd)}>
-            <div>{data.yyyy + " " + data.mm + " " + data.dd}</div>
+      {step === 2 && (
+        <>
+          <div>
+            {areaList.map((data, index) => (
+              <div key={index} onClick={() => ScreeningDate(data.ptName)}>
+                <div>{data.ptName}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
+          <br />
+        </>
+      )}
 
-      <div>
-        {movieList.map((data, index) => (
-          <div key={index} onClick={() => ScreeningTime(data.pmId)}>
-            <div>{data.pmName}</div>
+      {step === 3 && (
+        <>
+          <div>
+            {screeningDate.map((data, index) => (
+              <div key={index} onClick={() => Movie(data.dd)}>
+                <div>{data.yyyy + " " + data.mm + " " + data.dd}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
+          <br />
+        </>
+      )}
 
-      <div>
-        {screeningTime.map((data, index) => (
-          <div key={index} onClick={() => SelectSeat(data.prhHh)}>
-            <div>{data.prhRoom + "상영관" + " " + data.prhHh}</div>
+      {step === 4 && (
+        <>
+          <div>
+            {movieList.map((data, index) => (
+              <div key={index} onClick={() => ScreeningTime(data.pmId)}>
+                <div>{data.pmName}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
-      <div>
-        {selectSeat.map((data, index) => (
-          <div key={index} onClick={() => SelectSeatNumber(data.psSeatnum)}>
-            <button>{data.psSeatnum}</button>
+          <br />
+        </>
+      )}
+
+      {step === 5 && (
+        <>
+          <div>
+            {screeningTime.map((data, index) => (
+              <div key={index} onClick={() => SelectSeat(data.prhHh)}>
+                <div>{data.prhRoom + "상영관" + " " + data.prhHh}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <br />
-      <button onClick={() => Reservation}>예매하기</button>
+          <br />
+        </>
+      )}
+
+      {step === 6 && (
+        <>
+          <div>
+            {selectSeat.map((data, index) => (
+              <div key={index} onClick={() => SelectSeatNumber(data.psSeatnum)}>
+                <button disabled={data.checkSeat === 1}>
+                  {data.psSeatnum}
+                </button>
+              </div>
+            ))}
+          </div>
+          <br />
+        </>
+      )}
+
+      {checkForm() && <button onClick={Reservation}>예매하기</button>}
     </>
   );
 }
