@@ -15,4 +15,5 @@ public interface ReserVationMapper {
     List<PmTimeDto>screeningtime(int pmTimeDto);
     List<PmSeatDto>selectSeat(RequestSeatInfo requestSeatInfo);
     int tryReservation(PmMoviePlanDto pmMoviePlanDto);
+    List<PmCheckReservationDto>getCheckReservation(String pmCheckReservationDto);
 }

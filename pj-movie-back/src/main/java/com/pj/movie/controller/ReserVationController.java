@@ -47,4 +47,7 @@ public class ReserVationController {
     public int tryReservation(@RequestBody PmMoviePlanDto pmMoviePlanDto){
         return reserVationService.tryReservation(pmMoviePlanDto);
     }
+    @GetMapping("/getCheckReservation/{pmUserId}")
+    public List<PmCheckReservationDto> getCheckReservation(@PathVariable("pmUserId") String pmCheckReservationDto){
+        return reserVationService.getCheckReservation(pmCheckReservationDto);}
 }

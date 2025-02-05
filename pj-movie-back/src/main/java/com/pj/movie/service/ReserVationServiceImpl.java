@@ -26,4 +26,6 @@ public class ReserVationServiceImpl implements ReserVationService{
     public List<PmSeatDto>selectSeat(RequestSeatInfo requestSeatInfo){return reserVationMapper.selectSeat(requestSeatInfo);}
     @Override
     public int tryReservation(PmMoviePlanDto pmMoviePlanDto){return reserVationMapper.tryReservation(pmMoviePlanDto);}
+    @Override
+    public  List<PmCheckReservationDto>getCheckReservation(String pmCheckReservationDto){return reserVationMapper.getCheckReservation(pmCheckReservationDto);}
 }

@@ -44,9 +44,28 @@
     </select>
     <insert id="tryReservation" parameterType="com.pj.movie.dto.PmMoviePlanDto">
         insert
-        into PM_MOVIE_PLAN(PT_CD,PD_CD,PM_ID,PRH_CD,PS_CD)
-        values(#{ptCd},#{pdCd},#{pmId},#{prhCd},#{psCd})
+        into PM_MOVIE_PLAN(PT_CD,PD_CD,PM_ID,PRH_CD,PS_CD,PM_USER_ID)
+        values(#{ptCd},#{pdCd},#{pmId},#{prhCd},#{psCd},#{pmUserId})
 
     </insert>
 
+    <select id="getCheckReservation" resultType="com.pj.movie.dto.PmCheckReservationDto" parameterType="String">
+        select
+        T2.PT_AREA,T2.PT_NAME,T3.PM_NAME,T4.YYYY,T4.MM,T4.DD,T5.PS_SEATNUM,T6.PRH_ROOM,T6.PRH_HH
+        FROM PM_MOVIE_PLAN T1
+        LEFT JOIN PM_THEATER T2 ON T1.PT_CD=T2.PT_CD
+        LEFT JOIN PM_MOVIE T3 ON T1.PM_ID=T3.PM_ID
+        LEFT JOIN PM_DAY T4 ON T1.PD_CD=T4.PD_CD
+        LEFT JOIN PM_SEAT T5 ON T1.PS_CD=T5.PS_CD
+        LEFT JOIN PM_ROOM_HH T6 ON T1.PRH_CD=T6.PRH_CD
+        WHERE T1.PM_USER_ID = #{pmUserId}
+
+
+<!--        select-->
+<!--        T1.PB_TITLE, T1.PM_USER_ID, T1.PB_REG_DT, T2.PBC_NAME, T1.PB_ID-->
+<!--        FROM PM_BOARD T1-->
+<!--        LEFT JOIN PM_BOARD_CATG T2 ON T1.PBC_CD = T2.PBC_CD-->
+<!--        where PM_USER_ID = #{pmUserId}-->
+
+    </select>
 </mapper>

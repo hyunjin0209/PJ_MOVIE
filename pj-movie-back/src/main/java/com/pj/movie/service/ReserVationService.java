@@ -22,4 +22,6 @@ public interface ReserVationService {
     List<PmSeatDto> selectSeat(RequestSeatInfo requestSeatInfo);
 
     int tryReservation(PmMoviePlanDto pmMoviePlanDto);
+
+    List<PmCheckReservationDto> getCheckReservation(String pmCheckReservationDto);
 }

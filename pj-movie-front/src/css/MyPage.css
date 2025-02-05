@@ -1,0 +1,112 @@
+/* 🌙 다크 테마 기본 설정 */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* 📌 전체 레이아웃 */
+.main-home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding-top: 20px; /* 본문 상단 여백 추가 */
+}
+
+/* 📌 헤더 스타일 */
+.header {
+  width: 100%;
+  background-color: #222;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 20px;
+  position: relative;
+}
+
+/* 📌 로고 (제목) 스타일 */
+.header h1 {
+  margin: 10px 0;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.header h1:hover {
+  color: #ff9800;
+}
+
+/* 📌 바디 상단 버튼 컨테이너 */
+.top-button-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px; /* 아래 요소와 간격 조정 */
+}
+
+.top-button-container button {
+  background: #cc2a33;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.top-button-container button:hover {
+  background: #d62b36;
+  transform: translateY(-2px);
+}
+
+/* 📌 버튼 컨테이너 */
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.button-container button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button-container button:hover {
+  background: #ff9800;
+  transform: translateY(-2px);
+}
+
+/* 📌 푸터 스타일 */
+.footer {
+  width: 100%;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+}
+
+/* 📌 반응형 디자인 */
+@media (max-width: 768px) {
+  .button-container {
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .top-button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
