@@ -10,10 +10,16 @@ export default function FindId2({ id }) {
   };
   return (
     <>
-      귀하의 ID는 ({id}) 입니다
-      <br />
-      <button onClick={ClickHome}>홈페이지로</button>
-      <button onClick={ClickLogin}>로그인</button>
+      <div className="user-join-container">
+        귀하의 ID는 ({id}) 입니다
+        <br />
+        <button className="x-button" onClick={ClickHome}>
+          홈페이지로
+        </button>
+        <button className="x-button" onClick={ClickLogin}>
+          로그인
+        </button>
+      </div>
     </>
   );
 }

@@ -8,7 +8,7 @@ export default function NowScreening() {
   const [sessionDate, setsessionDate] = useState(sessionStorage.getItem("id"));
 
   const [page, setPage] = useState(1);
-  let itemsPerPage = 3;
+  let itemsPerPage = 6;
 
   const handlePageChange = (page) => {
     setPage(page);

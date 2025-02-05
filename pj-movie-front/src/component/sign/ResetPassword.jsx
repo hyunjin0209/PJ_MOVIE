@@ -40,45 +40,60 @@ export default function ResetPassword() {
   };
 
   return (
-    <>
+    <div className="user-join-wrapper">
       {step === "step1" && (
-        <div>
-          이름
-          <input
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserName: e.target.value });
-            }}
-          />
-          <br />
-          생년월일
-          <input
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserBd: e.target.value });
-            }}
-          />
-          <br />
-          아이디
-          <input
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserId: e.target.value });
-            }}
-          />
-          <br />
-          이메일
-          <input
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserEmail: e.target.value });
-            }}
-          />
-          <br />
-          전화번호
-          <input
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserPhone: e.target.value });
-            }}
-          />
-          <br />
-          <button onClick={ResetPwd}>다음</button>
+        <div className="user-join-container">
+          <div>
+            <h2>비밀번호 변경</h2>
+            <div className="join-form">
+              <label className="input-label">이름</label>
+              <input
+                type="text"
+                placeholder="이름을 입력하세요"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserName: e.target.value })
+                }
+              />
+
+              <label className="input-label">생년월일 (8자리)</label>
+              <input
+                type="text"
+                placeholder="ex)19990101"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserBd: e.target.value })
+                }
+              />
+
+              <label className="input-label">아이디</label>
+              <input
+                type="text"
+                placeholder="아이디를 입력하세요"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserId: e.target.value })
+                }
+              />
+
+              <label className="input-label">이메일</label>
+              <input
+                type="email"
+                placeholder="이메일을 입력하세요"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserEmail: e.target.value })
+                }
+              />
+              <label className="input-label">핸드폰 번호 (-없이)</label>
+              <input
+                type="text"
+                placeholder="ex)01012345678"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserPhone: e.target.value })
+                }
+              />
+              <button className="join-button" onClick={ResetPwd}>
+                다음
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
@@ -87,6 +102,6 @@ export default function ResetPassword() {
           <ResetPassword2 formData={formData} setFormData={setFormData} />
         </div>
       )}
-    </>
+    </div>
   );
 }
