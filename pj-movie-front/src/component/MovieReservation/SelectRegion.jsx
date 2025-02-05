@@ -140,6 +140,7 @@ export default function SelectRegion() {
           pdCd: reservation.pdCd,
           psCd: reservation.psCd,
           prhCd: reservation.prhCd,
+          pmUserId: checkId,
         },
         headers: { "Content-type": `application/json` },
       };

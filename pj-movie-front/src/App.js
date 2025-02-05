@@ -14,6 +14,7 @@ import MyPage from "./component/MyPage/MyPage";
 import AskList from "./component/MyPage/AskList";
 import UserDataUpdate from "./component/MyPage/UserDataUpdate";
 import SelectRegion from "./component/MovieReservation/SelectRegion";
+import CheckReservation from "./component/MyPage/CheckReservation";
 function App() {
   return (
     <BrowserRouter>
@@ -42,6 +43,7 @@ const AppComponent = () => {
           <Route path="/asklist" element={<AskList />} />
           <Route path="/userdataupdate" element={<UserDataUpdate />} />
           <Route path="/selectregion" element={<SelectRegion />} />
+          <Route path="/CheckReservation" element={<CheckReservation />} />
         </Routes>
       </Layout>
     </div>

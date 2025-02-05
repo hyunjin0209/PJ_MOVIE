@@ -8,6 +8,7 @@ public class PmMoviePlanDto {
     private int pdCd;
     private int prhCd;
     private int psCd;
+    private String pmUserId;
 
 }
 
