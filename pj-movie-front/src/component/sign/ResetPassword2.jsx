@@ -38,23 +38,30 @@ export default function ResetPassword2({ formData, setFormData }) {
   };
   return (
     <>
-      재설정 비밀번호
-      <input
-        type="password"
-        onChange={(e) => {
-          setFormData({ ...formData, pmUserPwd: e.target.value });
-        }}
-      />
-      <br />
-      비밀번호 확인
-      <input
-        type="password"
-        onChange={(e) => {
-          setFormData({ ...formData, pmUserPwd2: e.target.value });
-        }}
-      />
-      <br />
-      <button onClick={ResetPwd2}>비밀번호 재설정</button>
+      <div className="user-join-wrapper">
+        <div className="user-join-container">
+          <label className="input-label">재설정 비밀번호</label>
+          <input
+            type="password"
+            placeholder="비밀번호를 입력하세요"
+            onChange={(e) =>
+              setFormData({ ...formData, pmUserPwd: e.target.value })
+            }
+          />
+
+          <label className="input-label">비밀번호 확인인</label>
+          <input
+            type="password"
+            placeholder="비밀번호를 입력하세요"
+            onChange={(e) =>
+              setFormData({ ...formData, pmUserPwd2: e.target.value })
+            }
+          />
+          <button className="join-button" onClick={ResetPwd2}>
+            비밀번호 재설정
+          </button>
+        </div>
+      </div>
     </>
   );
 }

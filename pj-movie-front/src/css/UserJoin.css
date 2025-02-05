@@ -1,0 +1,116 @@
+/* 전체 화면 가운데 정렬 */
+.user-join-wrapper {
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  min-height: 100vh; /* 화면 전체 높이 */
+  background-color: #121212; /* 배경 색상 */
+  padding: 20px; /* 반응형 여백 */
+  box-sizing: border-box;
+}
+
+/* 회원가입 컨테이너 */
+.user-join-container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* 입력 폼을 가운데 정렬 */
+.join-form {
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  gap: 15px; /* 입력창 간격 */
+  align-items: center; /* 입력 폼을 수평 가운데 정렬 */
+}
+
+/* 라벨 */
+.input-label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #cccccc;
+  width: 100%; /* 라벨이 입력창과 같은 너비로 */
+  max-width: 350px; /* 입력창 최대 너비에 맞춤 */
+}
+
+/* 입력창 스타일 */
+input {
+  width: 100%;
+  max-width: 350px; /* 입력창 최대 너비 설정 */
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input::placeholder {
+  color: #888888;
+}
+
+input:focus {
+  background-color: #333;
+  box-shadow: 0px 0px 5px rgba(229, 9, 20, 0.8);
+}
+
+/* 회원가입 버튼 */
+.join-button {
+  width: 100%;
+  max-width: 350px; /* 버튼도 입력창과 같은 너비로 */
+  padding: 14px;
+  background: linear-gradient(135deg, #e50914, #d40813);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.join-button:hover {
+  background: linear-gradient(135deg, #d40813, #b30610);
+  transform: scale(1.05);
+}
+
+/* 애니메이션 효과 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.x-button {
+  width: 100%;
+  max-width: 120px; /* 버튼도 입력창과 같은 너비로 */
+  padding: 10px;
+  background: linear-gradient(135deg, #e50914, #d40813);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.x-button:hover {
+  background: linear-gradient(135deg, #d40813, #b30610);
+  transform: scale(1.05);
+}

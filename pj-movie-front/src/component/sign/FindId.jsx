@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import FindId2 from "./FindId2.jsx";
+import "../../css/UserJoin.css";
 
 export default function FindId() {
   const [formData, setFormData] = useState();
@@ -35,47 +36,56 @@ export default function FindId() {
   };
 
   return (
-    <>
+    <div className="user-join-wrapper">
       {resultId === null && (
-        <div>
-          <h2>아이디찾기</h2>
-          이름{" "}
-          <input
-            type="text"
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserName: e.target.value });
-            }}
-          />
-          <br />
-          이메일{" "}
-          <input
-            type="text"
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserEmail: e.target.value });
-            }}
-          />
-          <br />
-          핸드폰번호(-없이){" "}
-          <input
-            type="text"
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserPhone: e.target.value });
-            }}
-          />
-          <br />
-          생년월일(8자리){" "}
-          <input
-            type="text"
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserBd: e.target.value });
-            }}
-          />
-          <br />
-          <button onClick={ClickFindId}>아이디찾기</button>
+        <div className="user-join-container">
+          <div>
+            <h2>아이디찾기</h2>
+            <div className="join-form">
+              <label className="input-label">이름</label>
+              <input
+                type="text"
+                placeholder="이름을 입력하세요"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserName: e.target.value })
+                }
+              />
+
+              <label className="input-label">이메일</label>
+              <input
+                type="email"
+                placeholder="이메일을 입력하세요"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserEmail: e.target.value })
+                }
+              />
+
+              <label className="input-label">핸드폰 번호 (-없이)</label>
+              <input
+                type="text"
+                placeholder="ex)01012345678"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserPhone: e.target.value })
+                }
+              />
+
+              <label className="input-label">생년월일 (8자리)</label>
+              <input
+                type="text"
+                placeholder="ex)19990101"
+                onChange={(e) =>
+                  setFormData({ ...formData, pmUserBd: e.target.value })
+                }
+              />
+
+              <button className="join-button" onClick={ClickFindId}>
+                아이디찾기
+              </button>
+            </div>
+          </div>
         </div>
       )}
-
       {resultId !== null && <FindId2 id={resultId} />}
-    </>
+    </div>
   );
 }
