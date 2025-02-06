@@ -1,0 +1,212 @@
+/* 게시판 컨테이너 */
+.board-container {
+  max-width: 800px;
+  margin: 30px auto; /* 위아래 여백 줄이기 */
+  background-color: #2a2a2a;
+  padding: 15px; /* 내부 패딩 줄이기 */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-height: 500px; /* 전체 높이 제한 */
+}
+
+/* 게시판 테이블 스타일 */
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.board-table thead {
+  background-color: #444;
+  color: white;
+}
+
+.board-table th,
+.board-table td {
+  padding: 8px; /* 기존 12px → 8px */
+  font-size: 14px; /* 글자 크기 줄이기 */
+}
+
+.board-table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.board-table tbody tr:hover {
+  background-color: #3a3a3a;
+  cursor: pointer;
+}
+
+/* 카테고리 선택 & 버튼 */
+.category-select {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.board-button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #d40813, #b30610);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+.board-button:hover {
+  transform: scale(1.05);
+}
+
+/* 페이지네이션 */
+.board-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.board-pagination a {
+  padding: 10px 15px;
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.board-pagination a:hover {
+  background-color: #ff5722;
+}
+
+.board-pagination .active a {
+  background-color: #ff5722;
+  font-weight: bold;
+}
+
+.board-pagination .disabled a {
+  background-color: #333;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .board-container {
+    width: 95%;
+  }
+}
+/* 🌙 다크 테마 전체 컨테이너 */
+.detail-board-container {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 650px;
+  margin: 50px auto;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+  font-family: "Arial", sans-serif;
+}
+
+/* 라벨 스타일 */
+.detail-board-container label {
+  font-weight: bold;
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
+  color: #ff9800;
+}
+
+/* 입력 필드 스타일 */
+.detail-board-container input,
+.detail-board-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #2c2c2c;
+  color: white;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+/* 입력 필드 포커스 스타일 */
+.detail-board-container input:focus,
+.detail-board-container textarea:focus {
+  border-color: #ff9800;
+}
+
+/* 읽기 전용 필드 */
+.detail-board-container input:read-only,
+.detail-board-container textarea:read-only {
+  background-color: #3a3a3a;
+  color: #aaa;
+}
+
+/* 버튼 컨테이너 */
+.detail-board-buttons {
+  display: inline-flex; /* 버튼들을 인라인으로 배치 */
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 8px; /* 버튼 간격을 좀 더 좁힘 */
+}
+
+/* 버튼 스타일 */
+.detail-board-buttons button {
+  padding: 10px 18px;
+  font-size: 14px; /* 버튼 크기 조금 줄임 */
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+/* 수정, 저장 버튼 */
+.detail-board-buttons .edit-btn {
+  background-color: #ff9800;
+  color: white;
+  width: 100px; /* 버튼 크기 조정 */
+}
+
+.detail-board-buttons .edit-btn:hover {
+  background-color: #e68900;
+  transform: translateY(-2px);
+}
+
+/* 삭제 버튼 */
+.detail-board-buttons .delete-btn {
+  background-color: #d40813;
+  color: white;
+  width: 100px; /* 버튼 크기 조정 */
+}
+
+.detail-board-buttons .delete-btn:hover {
+  background-color: #b30610;
+  transform: translateY(-2px);
+}
+
+/* 입력창 정렬 */
+.detail-board-container input,
+.detail-board-container textarea {
+  margin-bottom: 12px; /* 입력창 간격을 통일 */
+}
+
+.detail-board-container input[type="text"] {
+  margin-top: 10px;
+}
+
+.detail-board-container .detail-board-container div {
+  display: flex;
+  flex-direction: column;
+}

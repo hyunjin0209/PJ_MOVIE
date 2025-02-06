@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import "../../css/BoardList.css";
 export default function DetailBoard() {
   const location = useLocation();
   const [formData, setFormData] = useState();
@@ -99,66 +99,70 @@ export default function DetailBoard() {
   };
   return (
     <>
-      {formData && (
-        <div>
-          No. :{" "}
-          <input
-            type="text"
-            value={formData.pbId}
-            onChange={(e) => {
-              setFormData({ ...formData, pbId: e.target.value });
-            }}
-            readOnly
-          />
-          <br />
-          제목 :{" "}
-          <input
-            type="text"
-            value={formData.pbTitle}
-            onChange={(e) => {
-              setFormData({ ...formData, pbTitle: e.target.value });
-            }}
-            readOnly={!isEditing}
-          />
-          <br />
-          작성자 :{" "}
-          <input
-            type="text"
-            value={formData.pmUserId}
-            onChange={(e) => {
-              setFormData({ ...formData, pmUserId: e.target.value });
-            }}
-            readOnly
-          />
-          <br />
-          내용 :{" "}
-          <input
-            type="textarea"
-            value={formData.pbContent}
-            onChange={(e) => {
-              setFormData({ ...formData, pbContent: e.target.value });
-            }}
-            readOnly={!isEditing}
-          />
-          <br />
-          작성일자 :{" "}
-          <input
-            type="text"
-            value={formData.pbRegDt}
-            onChange={(e) => {
-              setFormData({ ...formData, pbRegDt: e.target.value });
-            }}
-            readOnly
-          />
-          <br />
-          {isEditing ? (
-            <button onClick={updateBoard}>저장</button>
-          ) : (
-            <button onClick={correction}>수정</button>
-          )}
-          <button onClick={DeleteBoard}>삭제</button>
-        </div>
-      )}{" "}
+      <div className="detail-board-container">
+        {formData && (
+          <div>
+            No. :{" "}
+            <input
+              type="text"
+              value={formData.pbId}
+              onChange={(e) => {
+                setFormData({ ...formData, pbId: e.target.value });
+              }}
+              readOnly
+            />
+            <br />
+            제목 :{" "}
+            <input
+              type="text"
+              value={formData.pbTitle}
+              onChange={(e) => {
+                setFormData({ ...formData, pbTitle: e.target.value });
+              }}
+              readOnly={!isEditing}
+            />
+            <br />
+            작성자 :{" "}
+            <input
+              type="text"
+              value={formData.pmUserId}
+              onChange={(e) => {
+                setFormData({ ...formData, pmUserId: e.target.value });
+              }}
+              readOnly
+            />
+            <br />
+            내용 :{" "}
+            <input
+              type="textarea"
+              value={formData.pbContent}
+              onChange={(e) => {
+                setFormData({ ...formData, pbContent: e.target.value });
+              }}
+              readOnly={!isEditing}
+            />
+            <br />
+            작성일자 :{" "}
+            <input
+              type="text"
+              value={formData.pbRegDt}
+              onChange={(e) => {
+                setFormData({ ...formData, pbRegDt: e.target.value });
+              }}
+              readOnly
+            />
+            <br />
+            <div className="detail-board-buttons">
+              {isEditing ? (
+                <button onClick={updateBoard}>저장</button>
+              ) : (
+                <button onClick={correction}>수정</button>
+              )}
+              <button onClick={DeleteBoard}>삭제</button>
+            </div>{" "}
+          </div>
+        )}
+      </div>
     </>
   );
 }

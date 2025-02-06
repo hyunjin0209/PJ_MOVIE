@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Pagination from "react-js-pagination";
-
+import "../../css/BoardList.css";
 export default function AskList() {
   const [askList, setAskList] = useState([]);
   const [page, setPage] = useState(1); // 현재 페이지
@@ -38,41 +38,43 @@ export default function AskList() {
   const currentBoardList = askList.slice(startIndex, startIndex + itemsPerPage);
   return (
     <>
-      <table>
-        <thead>
-          <tr style={{ fontWeight: "bold" }}>
-            <td>No.</td>
-            <td>카테고리</td>
-            <td>제목</td>
-            <td>작성자ID</td>
-            <td>작성일시</td>
-          </tr>
-        </thead>
-        <tbody>
-          {currentBoardList.map((data, index) => (
-            <tr
-              key={index}
-              style={{ color: "white", cursor: "pointer" }}
-              onClick={() => nav("/DetailBoard", { state: { data } })}
-            >
-              <td>{(page - 1) * itemsPerPage + index + 1}</td>
-              <td>{data.pbcName}</td>
-              <td>{data.pbTitle}</td>
-              <td>{checkId}</td>
-              <td>{data.pbRegDt}</td>
+      <div className="board-container">
+        <table className="board-table">
+          <thead>
+            <tr style={{ fontWeight: "bold" }}>
+              <td>No.</td>
+              <td>카테고리</td>
+              <td>제목</td>
+              <td>작성자ID</td>
+              <td>작성일시</td>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <Pagination
-        activePage={page}
-        itemsCountPerPage={itemsPerPage}
-        totalItemsCount={askList.length}
-        pageRangeDisplayed={5}
-        prevPageText={"<"}
-        nextPageText={">"}
-        onChange={handlePageChange}
-      />
+          </thead>
+          <tbody>
+            {currentBoardList.map((data, index) => (
+              <tr
+                key={index}
+                style={{ color: "white", cursor: "pointer" }}
+                onClick={() => nav("/DetailBoard", { state: { data } })}
+              >
+                <td>{(page - 1) * itemsPerPage + index + 1}</td>
+                <td>{data.pbcName}</td>
+                <td>{data.pbTitle}</td>
+                <td>{checkId}</td>
+                <td>{data.pbRegDt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Pagination
+          activePage={page}
+          itemsCountPerPage={itemsPerPage}
+          totalItemsCount={askList.length}
+          pageRangeDisplayed={5}
+          prevPageText={"<"}
+          nextPageText={">"}
+          onChange={handlePageChange}
+        />
+      </div>
     </>
   );
 }
