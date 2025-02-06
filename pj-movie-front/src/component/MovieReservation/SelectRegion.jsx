@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/SelectRegion.css";
 
 export default function SelectRegion() {
   const [step, setStep] = useState(1);
@@ -19,6 +20,7 @@ export default function SelectRegion() {
   });
   let checkId = sessionStorage.getItem("id");
   const nav = useNavigate();
+
   useEffect(() => {
     if (checkId === null) {
       alert("로그인후 이용하세요");
@@ -52,12 +54,11 @@ export default function SelectRegion() {
       setStep(2);
     }
   };
+
   const ScreeningDate = async (ptName) => {
     const ptCode = areaList.find((data) => data.ptName === ptName).ptCd;
     setReservation({ ...reservation, ptCd: ptCode });
 
-    // const pdCode = screeningDate.find((data) => data.dd === dd).pdCd;
-    // setReservation({ ...reservation, pdCd: pdCode });
     const option = {
       url: "/api/reservation/screeningDate/" + checkId,
       method: "GET",
@@ -85,8 +86,8 @@ export default function SelectRegion() {
       setStep(4);
     }
   };
+
   const ScreeningTime = async (pmId) => {
-    // const pmCode = movieList.find((data) => data.pmId === pmId).pmId;
     setReservation({ ...reservation, pmId: pmId });
     const option = {
       url: "/api/reservation/screeningtime/" + pmId,
@@ -99,6 +100,7 @@ export default function SelectRegion() {
       setStep(5);
     }
   };
+
   const SelectSeat = async (prhHh) => {
     const prhCode = screeningTime.find((data) => data.prhHh === prhHh).prhCd;
     setReservation({ ...reservation, prhCd: prhCode });
@@ -118,15 +120,15 @@ export default function SelectRegion() {
     const response = await axios(option);
     if (response.status === 200 && response.data) {
       setSelectSeat(response.data);
-      console.log(response.data);
-
       setStep(6);
     }
   };
+
   const SelectSeatNumber = (psSeatnum) => {
     const psCode = selectSeat.find((data) => data.psSeatnum === psSeatnum).psCd;
     setReservation({ ...reservation, psCd: psCode });
   };
+
   const Reservation = async () => {
     let check = checkForm();
 
@@ -174,86 +176,110 @@ export default function SelectRegion() {
   return (
     <>
       {step === 1 && (
-        <>
-          <div>
+        <div className="container">
+          <div className="list-container">
             {regionList.map((data, index) => (
-              <div key={index} onClick={() => SelectTheaterData(data.ptArea)}>
+              <div
+                key={index}
+                className="list-item"
+                onClick={() => SelectTheaterData(data.ptArea)}
+              >
                 <div>{data.ptArea}</div>
               </div>
             ))}
           </div>
-          <br />
-        </>
+        </div>
       )}
 
       {step === 2 && (
-        <>
-          <div>
+        <div className="container">
+          <div className="list-container">
             {areaList.map((data, index) => (
-              <div key={index} onClick={() => ScreeningDate(data.ptName)}>
+              <div
+                key={index}
+                className="list-item"
+                onClick={() => ScreeningDate(data.ptName)}
+              >
                 <div>{data.ptName}</div>
               </div>
             ))}
           </div>
-          <br />
-        </>
+        </div>
       )}
 
       {step === 3 && (
-        <>
-          <div>
+        <div className="container">
+          <div className="list-container">
             {screeningDate.map((data, index) => (
-              <div key={index} onClick={() => Movie(data.dd)}>
+              <div
+                key={index}
+                className="list-item"
+                onClick={() => Movie(data.dd)}
+              >
                 <div>{data.yyyy + " " + data.mm + " " + data.dd}</div>
               </div>
             ))}
           </div>
-          <br />
-        </>
+        </div>
       )}
 
       {step === 4 && (
-        <>
-          <div>
+        <div className="container">
+          <div className="list-container">
             {movieList.map((data, index) => (
-              <div key={index} onClick={() => ScreeningTime(data.pmId)}>
+              <div
+                key={index}
+                className="list-item"
+                onClick={() => ScreeningTime(data.pmId)}
+              >
                 <div>{data.pmName}</div>
               </div>
             ))}
           </div>
-          <br />
-        </>
+        </div>
       )}
 
       {step === 5 && (
-        <>
-          <div>
+        <div className="container">
+          <div className="list-container">
             {screeningTime.map((data, index) => (
-              <div key={index} onClick={() => SelectSeat(data.prhHh)}>
+              <div
+                key={index}
+                className="list-item"
+                onClick={() => SelectSeat(data.prhHh)}
+              >
                 <div>{data.prhRoom + "상영관" + " " + data.prhHh}</div>
               </div>
             ))}
           </div>
-          <br />
-        </>
+        </div>
       )}
 
       {step === 6 && (
-        <>
-          <div>
+        <div className="container">
+          <div className="list-container">
             {selectSeat.map((data, index) => (
-              <div key={index} onClick={() => SelectSeatNumber(data.psSeatnum)}>
-                <button disabled={data.checkSeat === 1}>
+              <div key={index}>
+                <button
+                  className="seat-button"
+                  disabled={data.checkSeat === 1}
+                  onClick={() => SelectSeatNumber(data.psSeatnum)}
+                >
                   {data.psSeatnum}
                 </button>
               </div>
             ))}
           </div>
-          <br />
-        </>
+        </div>
       )}
 
-      {checkForm() && <button onClick={Reservation}>예매하기</button>}
+      {checkForm() && (
+        <div className="container">
+          <button className="reserve-button" onClick={Reservation}>
+            예매하기
+          </button>
+        </div>
+      )}
     </>
   );
 }

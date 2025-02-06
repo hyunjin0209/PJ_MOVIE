@@ -1,0 +1,81 @@
+/* 전체 컨테이너 스타일 */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 스텝 1 스타일 */
+.step1-container {
+  padding: 20px;
+  background-color: #0f0404;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step1-container input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #1b0606;
+  width: 100%;
+}
+
+.step1-container button {
+  padding: 10px 20px;
+  background-color: #d72c3a;
+  color: rgb(21, 6, 6);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.step1-container button:hover {
+  background-color: #bf1e1e;
+}
+
+/* 스텝 2 스타일 */
+.step2-container {
+  padding: 20px;
+  background-color: #120505;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step2-container input {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #db1e1e;
+  width: 100%;
+}
+
+.step2-container button {
+  padding: 10px 20px;
+  background-color: #300d0d;
+  color: #db1e1e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.step2-container button:hover {
+  background-color: #45a049;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+  .step1-container,
+  .step2-container {
+    padding: 15px;
+  }
+  .step1-container input,
+  .step2-container input {
+    width: 100%;
+  }
+}

@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/CheckReservation.css";
 
 export default function CheckReservation() {
   let checkId = sessionStorage.getItem("id");
   const [reservation, setReservation] = useState([]);
   const nav = useNavigate();
+
   const getChechReservation = async () => {
     if (checkId === null) {
       alert("로그인 후 이용해주세요");
@@ -22,11 +24,12 @@ export default function CheckReservation() {
       console.log(response.data);
     }
   };
+
   return (
-    <>
-      <div>
+    <div className="container">
+      <div className="reservation-container">
         {reservation.map((data, index) => (
-          <div key={index}>
+          <div key={index} className="reservation-item">
             <div>{data.ptArea}</div>
             <div>{data.ptName}</div>
             <div>{data.pmName}</div>
@@ -36,7 +39,9 @@ export default function CheckReservation() {
           </div>
         ))}
       </div>
-      <button onClick={getChechReservation}>내 예매내역 확인하기</button>
-    </>
+      <button className="check-button" onClick={getChechReservation}>
+        내 예매내역 확인하기
+      </button>
+    </div>
   );
 }
