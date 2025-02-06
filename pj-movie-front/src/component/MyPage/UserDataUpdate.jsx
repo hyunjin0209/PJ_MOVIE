@@ -1,7 +1,9 @@
+// UserDataUpdate Component
 import { useState } from "react";
 import UserDataUpdate2 from "./UserDataUpdate2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../../css/UserDataUpdate.css"; // Add the CSS file here
 
 export default function UserDataUpdate() {
   const [formData, setFormData] = useState();
@@ -36,10 +38,10 @@ export default function UserDataUpdate() {
   };
 
   return (
-    <>
+    <div className="container">
       {step === "step1" && (
-        <div>
-          비밀번호확인
+        <div className="step1-container">
+          <h2>비밀번호확인</h2>
           <input
             type="password"
             onChange={(e) => {
@@ -52,10 +54,10 @@ export default function UserDataUpdate() {
       )}
 
       {step === "step2" && (
-        <div>
+        <div className="step2-container">
           <UserDataUpdate2 formData={formData} setFormData={setFormData} />
         </div>
       )}
-    </>
+    </div>
   );
 }

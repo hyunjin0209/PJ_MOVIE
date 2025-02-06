@@ -1,6 +1,8 @@
+// UserDataUpdate2 Component
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../../css/UserDataUpdate.css"; // Add the CSS file here
 
 export default function UserDataUpdate2({ formData, setFormData }) {
   const nav = useNavigate();
@@ -28,8 +30,8 @@ export default function UserDataUpdate2({ formData, setFormData }) {
     const response = await axios(option);
 
     if (response.status === 200) {
+      setFormData(response.data);
     }
-    setFormData(response.data);
     console.log(response.data);
   };
 
@@ -58,7 +60,8 @@ export default function UserDataUpdate2({ formData, setFormData }) {
   };
 
   return (
-    <>
+    <div className="step2-container">
+      <h2>회원정보 수정</h2>
       아이디{" "}
       <input
         type="text"
@@ -104,8 +107,7 @@ export default function UserDataUpdate2({ formData, setFormData }) {
         }}
       />
       <br />
-      <button onClick={userData}></button>
       <button onClick={userDataUpdate}>회원정보수정</button>
-    </>
+    </div>
   );
 }
